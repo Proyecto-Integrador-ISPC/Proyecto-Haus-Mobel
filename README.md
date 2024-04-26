@@ -1,4 +1,4 @@
-### Proyecto Integrador - ISPC
+# Proyecto Integrador - ISPC
 
 ![](Frontend/img/Logo.png)
 
