@@ -1,5 +1,7 @@
 ### Proyecto Integrador - ISPC
 
+![](Frontend/img/Logo.png)
+
 Integrantes:
 
 - Agustín Ammazzagatti
