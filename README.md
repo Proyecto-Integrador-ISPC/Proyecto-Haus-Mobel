@@ -1,9 +1,14 @@
-### Proyecto de Tienda Web - Desarrollo Fullstack 2023 en el Instituto Politécnico Superior de Córdoba
+### Proyecto Integrador - ISPC
 
-Tecnologías Utilizadas:
+Integrantes:
 
-- HTML
-- CSS
-- JavaScript
-- Python
-- MySQL
+- Agustín Ammazzagatti
+- Karen Soledad Maldonado Malanczuk
+- Milena Nicole Gimenez
+- Milton Jose Luis Moreno
+- Facundo Arias
+- Mateo Beltramone
+- Victoria Ayala
+- Albano Ezequiel Caminos Picco
+- Luciano Nicolas De La Fuente Lopez
+- Matias Camayo
