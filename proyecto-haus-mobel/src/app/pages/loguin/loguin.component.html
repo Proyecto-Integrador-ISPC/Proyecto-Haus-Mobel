@@ -1,12 +1,13 @@
 <div class="contenedor-principal-loguin">
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
-        <form action="procesar-login.php" method="post">
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
           <label for="username">Nombre de Usuario:</label>
           <input
             type="text"
             id="username"
             name="username"
+            formControlName="usuario"
             required
             placeholder="Ingrese su nombre de usuario"
           />
@@ -16,11 +17,12 @@
             type="password"
             id="password"
             name="password"
+            formControlName="password"
             required
             placeholder="Ingrese su contraseña"
           />
           <div class="mi-buton">
-            <button id="boton" type="button">Iniciar Sesión</button>
+            <button id="boton" type="submit">Iniciar Sesión</button>
           </div>
         </form>
         <p>¿Ya te registraste? <a href="registro.html">Regístrate</a></p>
