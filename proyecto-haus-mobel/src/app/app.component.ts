@@ -6,10 +6,11 @@ import { FoorterComponent } from './shared/foorter/foorter.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 
 
+import { LoguinComponent } from './pages/loguin/loguin.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, HomeComponent, FoorterComponent, ProductosComponent],
+  imports: [RouterOutlet, NavComponent, HomeComponent, FoorterComponent, ProductosComponent, LoguinComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
