@@ -11,7 +11,14 @@
             </div>
             <div class="col-der">
                 <ng-container *ngIf="selectedItem === 'usuario'">
-                    <p>Información de usuario</p>
+                    <h5>Información de Usuario</h5>
+                    <div class="info-usuario">
+                        <p class="item-info">Nombre: Juan Perez</p>
+                        <p class="item-info">Usuario: Usuario</p>
+                        <p class="item-info">Dirección: Av. Colón 000</p>
+                        <p class="item-info">Teléfono: +5490000000</p>
+                        <p class="item-info">Email: juanperez&#64;email.com</p>
+                    </div>
                 </ng-container>
                 <ng-container *ngIf="selectedItem === 'compras'">
                     <p>Información de compras aquís...</p>
