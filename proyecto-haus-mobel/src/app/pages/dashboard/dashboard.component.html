@@ -21,7 +21,51 @@
                     </div>
                 </ng-container>
                 <ng-container *ngIf="selectedItem === 'compras'">
-                    <p>Información de compras aquís...</p>
+                    <h5>Mis compras realizadas</h5>
+                    <div class="contenedor-compras">
+                        <div class="allcompras">
+                            <div class="textoscompra">
+                                <div class="item-compra"></div>
+                                <div class="item-compra">Nombre</div>
+                                <div class="item-compra">Precio</div>
+                                <div class="item-compra">Cant.</div>
+                                <div class="item-compra">Subtotal</div>
+                            </div>
+                            <div class="compra1">
+                                <div class="item-compra">
+                                    <img src="../../../assets/p1.jpg" alt="Silla Elegance" width="40px" height="40px">
+                                </div>
+                                <div class="item-compra">Silla Elegance</div>
+                                <div class="item-compra">$19.500</div>
+                                <div class="item-compra">4</div>
+                                <div class="item-compra">$78.000</div>
+                            </div>   
+                            <div class="compra2">
+                                <div class="item-compra">
+                                    <img src="../../../assets/p3.jpg" alt="Silla Harmony" width="40px" height="40px">
+                                </div>
+                                <div class="item-compra">Silla Harmony</div>
+                                <div class="item-compra">$22.999</div>
+                                <div class="item-compra">1</div>
+                                <div class="item-compra">$22.999</div>
+                            </div>  
+                            <div class="compra3">
+                                <div class="item-compra">
+                                    <img src="../../../assets/p5.jpg" alt="Silla Zenith" width="40px" height="40px">
+                                </div>
+                                <div class="item-compra">Silla Zenith</div>
+                                <div class="item-compra">$21.000</div>
+                                <div class="item-compra">3</div>
+                                <div class="item-compra">$63.000</div>
+                            </div>
+                        </div>
+                        <!-- <div class="allsubtotal">
+                            <div class="subtotal">
+                                <div class="subtotal-text">Subtotal</div>
+                                <div class="item-compra">$163.999</div>
+                            </div>
+                        </div> -->
+                    </div>
                 </ng-container>
                 <ng-container *ngIf="selectedItem === 'estado'">
                     <p>Información de estado</p>
