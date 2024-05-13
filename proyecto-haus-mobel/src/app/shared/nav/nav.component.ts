@@ -12,8 +12,9 @@ declare var $: any;
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent {
 
+export class NavComponent {
+  itemsEnCarrito: any[] = []; 
   constructor(private router: Router) {}
   
 
@@ -36,11 +37,26 @@ export class NavComponent {
     this.router.navigate(['/loguin']);
   }
 
-  toggleDropdown() {
+  toggleDropdown(){
     const dropdownMenu = document.querySelector('.dropdown-menu');
     if (dropdownMenu) {
       dropdownMenu.classList.toggle('show');
     }
     }
+
+    toggleCartDropdown(){
+    const dropdownMenu2 = document.querySelector('.menu2');
+    if (dropdownMenu2) {
+      dropdownMenu2.classList.toggle('show');
+    }
+    }
+
+    // toggleCartDropdown(event: MouseEvent) {
+    //   event.stopPropagation();
+    //   const dropdownMenu = document.querySelector('#cartDropdown');
+    //   if (dropdownMenu) {
+    //     dropdownMenu.classList.toggle('show');
+    //   }
+    // }
 
 }
