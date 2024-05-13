@@ -1,0 +1,99 @@
+<div class="contenedor-principal-loguin">
+    <div class="login-container">
+        <h2>Panel de control</h2>
+        <div class="columnas-panel">
+            <div class="col-izq">
+                <div class="col-child" (click)="showUsuario()">Usuario</div>
+                <div class="col-child" (click)="showPurchases()">Compras</div>
+                <div class="col-child" (click)="showOrderStatus()">Estado</div>
+                <div class="col-child" (click)="showHistorial()">Historial</div>
+                <div class="col-child" (click)="showCarrito()">Carrito</div>
+            </div>
+            <div class="col-der">
+                <ng-container *ngIf="selectedItem === 'usuario'">
+                    <h5>Información de Usuario</h5>
+                    <div class="info-usuario">
+                        <p class="item-info">Nombre: Juan Perez</p>
+                        <p class="item-info">Usuario: Usuario</p>
+                        <p class="item-info">Dirección: Av. Colón 000</p>
+                        <p class="item-info">Teléfono: +5490000000</p>
+                        <p class="item-info">Email: juanperez&#64;email.com</p>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'compras'">
+                    <h5>Mis compras realizadas</h5>
+                    <div class="contenedor-compras">
+                        <div class="allcompras">
+                            <div class="textoscompra">
+                                <div class="item-compra">Pedido</div>
+                                <div class="item-compra">Nombre</div>
+                                <div class="item-compra">Precio</div>
+                                <div class="item-compra">Cant.</div>
+                                <div class="item-compra">Subtotal</div>
+                            </div>
+                            <div class="compra1">
+                                <div class="item-compra">#0001</div>
+                                
+                                <div class="item-compra">Silla Elegance</div>
+                                <div class="item-compra">$19.500</div>
+                                <div class="item-compra">4</div>
+                                <div class="item-compra">$78.000</div>
+                            </div>   
+                            <div class="compra2">
+                                <div class="item-compra">#0002</div>
+                                <!-- <div class="item-compra">
+                                    <img src="../../../assets/p3.jpg" alt="Silla Harmony" width="40px" height="40px">
+                                </div> -->
+                                <div class="item-compra">Silla Harmony</div>
+                                <div class="item-compra">$22.999</div>
+                                <div class="item-compra">1</div>
+                                <div class="item-compra">$22.999</div>
+                            </div>  
+                            <div class="compra3">
+                                <div class="item-compra">#0003</div>
+                                <div class="item-compra">Silla Zenith</div>
+                                <div class="item-compra">$21.000</div>
+                                <div class="item-compra">3</div>
+                                <div class="item-compra">$63.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'estado'">
+                    <h5>Estado de los pedidos</h5>
+                    <div class="contenedor-compras">
+                        <div class="allcompras">
+                            <div class="textoscompra">
+                                <div class="item-compra">Pedido</div>
+                                <div class="item-compra">Fecha</div>
+                                <div class="item-compra">Estado</div>
+                            </div>
+                            <div class="compra1">
+                                <div class="item-compra">#0001</div>
+                                <div class="item-compra">01/01/24</div>
+                                <div class="item-compra">Terminado</div>
+                            </div>   
+                            <div class="compra2">
+                                <div class="item-compra">#0002</div>
+                                <div class="item-compra">02/10/24</div>
+                                <div class="item-compra">Terminado</div>
+                            </div>  
+                            <div class="compra3">
+                                <div class="item-compra">#0003</div>
+                                <div class="item-compra">04/03/24</div>
+                                <div class="item-compra">En proceso</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'historial'">
+                    <p>Información de historial</p>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'carrito'">
+                    <p>Información de carrito</p>
+                </ng-container>
+                <!-- Otros contenedores para otros elementos -->
+            </div>
+        </div>        
+      </div>
+</div>
