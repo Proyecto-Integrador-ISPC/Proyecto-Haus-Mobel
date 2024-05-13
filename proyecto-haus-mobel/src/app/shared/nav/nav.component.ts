@@ -62,4 +62,8 @@ export class NavComponent {
       this.router.navigate(['/carrito']);
     }
 
+    misCompras() {
+      this.router.navigate(['/compras']);
+    }
+
 }
