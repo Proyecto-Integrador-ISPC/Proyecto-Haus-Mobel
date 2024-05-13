@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loguin',
@@ -11,9 +12,8 @@ import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup } from '@angul
 
 
 export class LoguinComponent {
-  // loguinFormControl = new FormControl('', []);
   form!:FormGroup;
-  constructor(private formBuilder:FormBuilder)
+  constructor(private formBuilder:FormBuilder, private router: Router)
   {
     this.form=this.formBuilder.group(
       {
@@ -28,6 +28,9 @@ export class LoguinComponent {
   {
     console.log(this.form.value)
   }
-    
+
+  registrarse() {
+    this.router.navigate(['/registro']);
+  }
 }
 
