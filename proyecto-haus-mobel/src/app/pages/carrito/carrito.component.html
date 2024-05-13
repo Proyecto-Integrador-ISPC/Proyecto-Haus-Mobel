@@ -1,20 +1,9 @@
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
-<p>carrito works!</p>
+<div class="signup-container">
+    {{ productos | json }}
+    <div *ngFor="let producto of productos">
+        <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}" />
+        <h3>{{ producto.nombre }}</h3>
+        <div class="precio">{{ producto.precio | currency }}</div>
+    </div>
+    <p>hola</p>
+</div>

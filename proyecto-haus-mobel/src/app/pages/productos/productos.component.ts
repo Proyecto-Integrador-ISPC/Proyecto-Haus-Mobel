@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { CarritoService } from '../../services/carrito.service';
+import { ProductoService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
-export class ProductosComponent {
-  constructor(private carritoService: CarritoService) { }
+export class ProductosComponent implements OnInit{
+  productos: any[] = [];
+  @Output() agregarAlCarrito: EventEmitter<any> = new EventEmitter<any>(); 
 
-  agregarAlCarrito(producto: any) {
-    this.carritoService.agregarAlCarrito(producto);
-    alert('¡Producto añadido al carrito exitosamente!')
-    console.log(producto);
-    
+  constructor(private productoService: ProductoService) { }
+
+  ngOnInit(): void {
+    this.productos = this.productoService.getProductos();
+    console.log(this.productos)
+  }
+
+  onAgregarAlCarrito(producto: any) {
+    this.productoService.marcarEnCarrito(producto.id);
+    this.agregarAlCarrito.emit(producto); 
+    console.log('¡Producto añadido al carrito exitosamente!', producto);
   }
 
 }

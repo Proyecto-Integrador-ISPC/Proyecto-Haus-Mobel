@@ -14,4 +14,11 @@ import { CarritoService } from '../../services/carrito.service';
 })
 export class ComprasComponent {
   constructor(private router: Router, private carritoService: CarritoService) {}
+
+  
+  // items: any[] = [
+  //   { nombre: 'Producto 1', precio: 10, cantidad: 2 },
+  //   { nombre: 'Producto 2', precio: 15, cantidad: 1 },
+  //   // Agrega más elementos según sea necesario
+  // ];
 }
