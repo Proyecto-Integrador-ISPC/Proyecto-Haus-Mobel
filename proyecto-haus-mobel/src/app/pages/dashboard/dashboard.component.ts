@@ -12,10 +12,8 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent {
   selectedItem: string = 'usuario';
-  showCompras: boolean = false;
   showPurchases() {
-    this.selectedItem = 'compras'; // Actualiza el valor de selectedItem
-    this.showCompras = true;
+    this.selectedItem = 'compras';
   }
   showOrderStatus() {
     this.selectedItem = 'estado';

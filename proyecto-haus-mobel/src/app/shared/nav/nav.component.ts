@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarritoService } from '../../services/carrito.service';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
 declare var $: any;
@@ -17,14 +16,14 @@ declare var $: any;
 
 export class NavComponent {
   itemsEnCarrito: any[] = []; 
-  constructor(private router: Router, private carritoService: CarritoService) {}
+  constructor(private router: Router) {}
   
 
   ngOnInit() {
     // Inicializa Bootstrap manualmente
     $('[data-toggle="dropdown"]').dropdown();
     // this.actualizarItemsEnCarrito();
-    this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
+    // this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
   }
 
   isLoggedIn(): boolean {
@@ -55,9 +54,9 @@ export class NavComponent {
     // }
     // }
 
-    private actualizarItemsEnCarrito() {
-      this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
-    }
+    // private actualizarItemsEnCarrito() {
+    //   this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
+    // }
 
     carrito() {
       this.router.navigate(['/carrito']);
