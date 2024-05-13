@@ -17,6 +17,7 @@ class Productos(models.Model):
     nombre = models.CharField(max_length=200, blank=False)
     precio = models.FloatField(blank=False)
     idTipoProducto = models.ForeignKey(TipoProductos, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to = 'static/images', blank = True)
     class Meta:
         db_table = 'Productos'
         verbose_name='Producto'
