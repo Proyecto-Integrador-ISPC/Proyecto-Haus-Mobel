@@ -14,6 +14,8 @@ export class ProductosComponent {
   agregarAlCarrito(producto: any) {
     this.carritoService.agregarAlCarrito(producto);
     alert('¡Producto añadido al carrito exitosamente!')
+    console.log(producto);
+    
   }
 
 }
