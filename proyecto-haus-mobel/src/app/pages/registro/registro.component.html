@@ -1,11 +1,12 @@
 <div class="signup-container">
     <h1>¡Bienvenidos a Haus Mobel!</h1>
-    <form action="procesar-registro.php" method="post">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
       <label for="nombre">Nombre:</label>
       <input
         type="text"
         id="nombre"
         name="nombre"
+        formControlName="usuario"
         required
         placeholder="Ingrese su nombre"
       />
@@ -15,6 +16,7 @@
         type="email"
         id="email"
         name="email"
+        formControlName="email"
         required
         placeholder="Ingrese su correo electrónico"
       />
@@ -24,6 +26,7 @@
         type="password"
         id="contrasena"
         name="contrasena"
+        formControlName="password"
         required
         placeholder="Ingrese su contraseña"
       />
