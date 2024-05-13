@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CarritoService } from '../../services/carrito.service';
 import { ProductoService } from '../../services/productos.service';
 
+import { ItemCarrito } from '../../services/ItemCarrito';
+
 @Component({
   selector: 'app-productos',
   standalone: true,
@@ -26,5 +28,13 @@ export class ProductosComponent implements OnInit{
     this.agregarAlCarrito.emit(producto); 
     console.log('¡Producto añadido al carrito exitosamente!', producto);
   }
+  // agregarCarrito(item: Producto){
+  //   let iCarrito: ItemCarrito = {
+  //     idproducto: item.idproducto,
+  //     nombre: item.nombre,
+  //     precio: item.precio,
+  //     cantidad: 1
+  //   }
+  // }
 
 }

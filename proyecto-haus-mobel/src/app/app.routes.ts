@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ComprasComponent } from './pages/compras/compras.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent, pathMatch:"full"},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path:"loguin", component:LoguinComponent},
     {path:"registro", component:RegistroComponent},
     {path:"carrito", component:CarritoComponent},
-    {path:"compras", component:ComprasComponent}
+    {path:"compras", component:ComprasComponent},
+    {path:"dashboard", component:DashboardComponent}
 ];

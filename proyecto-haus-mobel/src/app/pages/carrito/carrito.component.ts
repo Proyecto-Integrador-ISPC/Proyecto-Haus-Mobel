@@ -20,9 +20,9 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     this.actualizarProductos();
   }
-
+  
   actualizarProductos() {
     this.productos = this.carritoService.obtenerItemsEnCarrito();
-    console.log('Productos en el carrito:', this.productos);
+    console.log('Productos en el carrito:', this.productos); // Agregar un console.log para verificar
   }
 }

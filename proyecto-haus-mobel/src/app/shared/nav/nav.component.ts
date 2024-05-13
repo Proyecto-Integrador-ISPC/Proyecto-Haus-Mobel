@@ -3,6 +3,7 @@ import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarritoService } from '../../services/carrito.service';
+import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
 declare var $: any;
 

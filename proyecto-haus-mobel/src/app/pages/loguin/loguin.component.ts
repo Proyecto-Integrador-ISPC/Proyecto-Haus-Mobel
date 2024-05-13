@@ -15,17 +15,14 @@ import { CommonModule } from '@angular/common';
 export class LoguinComponent {
   usuario: string = 'usuario';
   password: string = 'password';
+  userData: any = {};
 
-  form!:FormGroup;
-  constructor(private formBuilder:FormBuilder, private router: Router)
-  {
-    this.form=this.formBuilder.group(
-      {
-        usuario: ['', Validators.required],
-        password: ['', Validators.required]
-      }
-    )
-    
+  form!: FormGroup;
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.form = this.formBuilder.group({
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
   
   onSubmit() {
@@ -35,6 +32,8 @@ export class LoguinComponent {
     if (this.form.valid && usuario === this.usuario && password === this.password) {
       console.log('Formulario válido');
       alert('¡Bienvenido!');
+      // Almacenar los datos del usuario
+      this.userData = { username: usuario, email: 'usuario@example.com', age: 30 }; // Aquí puedes definir los datos del usuario
       localStorage.setItem('isLoggedIn', 'true');
       this.router.navigate(['/home']);
     } else {

@@ -1,0 +1,32 @@
+<div class="contenedor-principal-loguin">
+    <div class="login-container">
+        <h2>Panel de control</h2>
+        <div class="columnas-panel">
+            <div class="col-izq">
+                <div class="col-child" (click)="showUsuario()">Usuario</div>
+                <div class="col-child" (click)="showPurchases()">Compras</div>
+                <div class="col-child" (click)="showOrderStatus()">Estado</div>
+                <div class="col-child" (click)="showHistorial()">Historial</div>
+                <div class="col-child" (click)="showCarrito()">Carrito</div>
+            </div>
+            <div class="col-der">
+                <ng-container *ngIf="selectedItem === 'usuario'">
+                    <p>Información de usuario</p>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'compras'">
+                    <p>Información de compras aquís...</p>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'estado'">
+                    <p>Información de estado</p>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'historial'">
+                    <p>Información de historial</p>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'carrito'">
+                    <p>Información de carrito</p>
+                </ng-container>
+                <!-- Otros contenedores para otros elementos -->
+            </div>
+        </div>        
+      </div>
+</div>

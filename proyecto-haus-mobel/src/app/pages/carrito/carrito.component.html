@@ -1,9 +1,26 @@
-<div class="signup-container">
-    {{ productos | json }}
+<!-- <div class="signup-container">
     <div *ngFor="let producto of productos">
-        <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}" />
-        <h3>{{ producto.nombre }}</h3>
-        <div class="precio">{{ producto.precio | currency }}</div>
-    </div>
+        <p>{{ producto.nombre }} - {{ producto.precio }}</p>
+      </div>
+    <p>hola</p>
+</div> -->
+
+<div class="signup-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
     <p>hola</p>
 </div>
+
+
