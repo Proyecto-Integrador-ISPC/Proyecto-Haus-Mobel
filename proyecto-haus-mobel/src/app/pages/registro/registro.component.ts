@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
+
 export class RegistroComponent {
  form!:FormGroup;
  constructor(private formBuilder:FormBuilder, private router: Router)
