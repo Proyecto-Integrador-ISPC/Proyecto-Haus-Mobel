@@ -16,7 +16,7 @@
         type="email"
         id="email"
         name="email"
-        formControlName="email"
+        formControlName="password"
         required
         placeholder="Ingrese su correo electrónico"
       />
@@ -35,6 +35,6 @@
       </div>
     </form>
     <p>
-      ¿Ya tienes una cuenta? <a routerLink="/loguin">Inicia Sesión</a>
+      ¿Ya tienes una cuenta? <button (click)="iniciarSesion()">Iniciar Sesión</button>
     </p>
   </div>

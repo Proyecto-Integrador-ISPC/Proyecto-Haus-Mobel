@@ -5,9 +5,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 
 export const routes: Routes = [
-    {path:"", component:HomeComponent},
+    {path:"", component:HomeComponent, pathMatch:"full"},
     {path:"home", component:HomeComponent},
     {path:"productos", component:ProductosComponent},
     {path:"loguin", component:LoguinComponent},
-    {path:"registro", component:RegistroComponent}
+    {path:"registro", component:RegistroComponent,
+        children:[
+            {path:"loguin", component:LoguinComponent}
+        ]
+    }
 ];
