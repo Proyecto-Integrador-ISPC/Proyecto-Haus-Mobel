@@ -13,33 +13,35 @@ import { CommonModule } from '@angular/common';
 
 
 export class LoguinComponent {
-  form!:FormGroup;
-  constructor(private formBuilder:FormBuilder, private router: Router)
-  {
-    this.form=this.formBuilder.group(
-      {
-        usuario: ['', Validators.required],
-        password: ['', Validators.required]
-      }
-    )
-    
-  }
+  usuario: string = 'usuario';
+  password: string = 'password';
+  userData: any = {};
 
-  onEnviar(event:Event)
-  {
-    console.log(this.form.value)
+  form!: FormGroup;
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.form = this.formBuilder.group({
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+  
+  onSubmit() {
+    const usuario = this.form.get('usuario')?.value;
+    const password = this.form.get('password')?.value;
 
+    if (this.form.valid && usuario === this.usuario && password === this.password) {
+      console.log('Formulario válido');
+      alert('¡Bienvenido!');
+      // Almacenar los datos del usuario
+      this.userData = { username: usuario, email: 'usuario@example.com', age: 30 }; // Aquí puedes definir los datos del usuario
+      localStorage.setItem('isLoggedIn', 'true');
+      this.router.navigate(['/home']);
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
+  }
+  
   registrarse() {
     this.router.navigate(['/registro']);
   }
-
-  onSubmit() {
-    if (this.form.valid) {
-      console.log('Formulario válido');
-    } else {
-      alert("Datos incorrectos. Ingresá nuevamente.")
-    }
-  }
 }
-
