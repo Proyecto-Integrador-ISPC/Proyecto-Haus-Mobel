@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 
 
 export class LoguinComponent {
+  usuario: string = 'usuario';
+  password: string = 'password';
+
   form!:FormGroup;
   constructor(private formBuilder:FormBuilder, private router: Router)
   {
@@ -24,22 +27,22 @@ export class LoguinComponent {
     )
     
   }
+  
+  onSubmit() {
+    const usuario = this.form.get('usuario')?.value;
+    const password = this.form.get('password')?.value;
 
-  onEnviar(event:Event)
-  {
-    console.log(this.form.value)
+    if (this.form.valid && usuario === this.usuario && password === this.password) {
+      console.log('Formulario válido');
+      alert('¡Bienvenido!');
+      localStorage.setItem('isLoggedIn', 'true');
+      this.router.navigate(['/home']);
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
   }
-
+  
   registrarse() {
     this.router.navigate(['/registro']);
   }
-
-  onSubmit() {
-    if (this.form.valid) {
-      console.log('Formulario válido');
-    } else {
-      alert("Datos incorrectos. Ingresá nuevamente.")
-    }
-  }
 }
-
