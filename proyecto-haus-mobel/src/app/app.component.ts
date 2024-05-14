@@ -12,7 +12,7 @@ import { LoguinComponent } from './pages/loguin/loguin.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, HomeComponent, FoorterComponent, ProductosComponent, LoguinComponent, ContactoComponent, NosotrosComponent,],
+  imports: [RouterOutlet, NavComponent, HomeComponent, FoorterComponent, ProductosComponent, LoguinComponent, ContactoComponent, NosotrosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

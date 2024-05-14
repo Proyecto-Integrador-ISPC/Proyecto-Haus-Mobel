@@ -7,10 +7,6 @@ menu.onclick = () => {
   navbar.classList.toggle("active");
 };
 
-/* window.onscroll = () => {
-  navbar.classList.remove("active");
-}; */
-
 /* Sección productos.html */
 
 let preveiwContainer = document.querySelector(".products-preview");
