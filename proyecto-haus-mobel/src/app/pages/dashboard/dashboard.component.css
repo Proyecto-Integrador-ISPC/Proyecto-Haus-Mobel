@@ -846,7 +846,7 @@ input[type="submit"]:hover {
   flex-direction: column;
 }
 
-.compra1, .compra2, .compra3, .textoscompra{
+.compra1, .compra2, .compra3, .compra4, .compra5, .textoscompra{
   display: flex;
   flex-direction: row;
   width: 100%;
