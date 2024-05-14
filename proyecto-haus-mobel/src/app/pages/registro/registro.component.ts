@@ -37,7 +37,7 @@ export class RegistroComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Formulario válido');
+      alert("Registro realizado exitosamente.")
     } else {
       alert("Por favor, completá todos los campos antes de registrarte.")
     }
