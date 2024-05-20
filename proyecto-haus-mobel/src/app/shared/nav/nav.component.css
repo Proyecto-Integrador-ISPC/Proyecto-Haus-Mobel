@@ -33,6 +33,7 @@ header {
 .navbar a {
   font-size: 1rem;
   padding: 10px 20px;
+  margin: 0px;
   font-weight: 500;
   color: var(--text-color);
 }

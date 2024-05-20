@@ -1,10 +1,5 @@
-/* styles.css */
-/* @import "~bootstrap/dist/css/bootstrap.css"; */
+
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
-
-
-
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
@@ -20,7 +15,9 @@
 :root {
   --text-color: #000000;
   --main-color: #83b735;
+  --option-color: #8fc53d;
 }
+
 section {
   padding: 50px 10%;
 }

@@ -1,7 +1,7 @@
 <main>
   <div class="container">
     <div class="products-container">
-      <div *ngIf="!parteOcultaVisible">
+      <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
         <div (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
           <div class="product" data-name="p-1" >
@@ -91,7 +91,7 @@
               Silla madera, acolchado gris, elegante y cómoda, perfecta para
               interiores con estilo y confort duradero.
             </p>
-            <div class="price">$19.500</div>
+            <div class="price-oculto">$19.500</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -112,7 +112,7 @@
               Silla madera, acolchado gris, elegante y cómoda, perfecta para
               interiores con estilo y confort duradero.
             </p>
-            <div class="price">$19.500</div>
+            <div class="price-oculto">$19.500</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -133,7 +133,7 @@
               Silla chic con patas madera oscura, asiento y respaldo en rosa,
         aporta encanto y frescura a cualquier espacio.
             </p>
-            <div class="price">$22.999</div>
+            <div class="price-oculto">$22.999</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -154,7 +154,7 @@
               Silla ergonómica de oficina, diseño contemporáneo, ajustes
               personalizados para comodidad laboral y productividad.
             </p>
-            <div class="price">$17.999</div>
+            <div class="price-oculto">$17.999</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -174,7 +174,7 @@
             <p>
               Silla moderna con patas de madera y asiento de plástico negro, fusión de estilo y practicidad en diseño.
             </p>
-            <div class="price">$21.000</div>
+            <div class="price-oculto">$21.000</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -195,7 +195,7 @@
               Silla elegante, patas de madera sólida, asiento acolchado en negro,
               combinando estilo y comodidad en un diseño atemporal.
             </p>
-            <div class="price">$16.000</div>
+            <div class="price-oculto">$16.000</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -216,7 +216,7 @@
               Silla elegante, patas de madera sólida, asiento acolchado en negro,
               combinando estilo y comodidad en un diseño atemporal.
             </p>
-            <div class="price">$26.000</div>
+            <div class="price-oculto">$26.000</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -237,7 +237,7 @@
               Silla de plástico ligera y versátil, perfecta para uso en interiores
               y exteriores.
             </p>
-            <div class="price">$18.000</div>
+            <div class="price-oculto">$18.000</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -258,7 +258,7 @@
               Silla con estructura metálica elegante y duradera, adecuada para
         diversos entornos decorativos.
             </p>
-            <div class="price">$19.000</div>
+            <div class="price-oculto">$19.000</div>
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
