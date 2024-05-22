@@ -796,3 +796,13 @@ input[type="submit"]:hover {
 .login-container button:hover {
   background-color: #76c500;
 }
+
+.precio-y-carrito{
+  display: flex;
+  justify-content: space-between;
+}
+
+#cart-vacio{
+  color: var(--main-color);
+  margin: 0.2rem;
+}
