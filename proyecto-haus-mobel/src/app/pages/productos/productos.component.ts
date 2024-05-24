@@ -103,4 +103,8 @@ export class ProductosComponent {
   redirectToLoguin(){
     this.router.navigate(['/loguin']);
   }
+
+  irACarrito(){
+    this.router.navigate(['/carrito']);
+  }
 }
