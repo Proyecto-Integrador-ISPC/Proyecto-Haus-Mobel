@@ -1,10 +1,10 @@
 <main>
   <div class="container">
     <div class="products-container">
-      <div *ngIf="!parteOcultaVisible">
+      <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
         <div (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-1" >
+          <div class="product" data-name="p-1">
             <img src="assets/p1.jpg" alt="Producto 1" />
             <h3>Silla Elegance</h3>
             <div class="price">$19.500</div>
@@ -80,7 +80,7 @@
 
       <!-- Contenido de la parte oculta -->
       <div *ngIf="elementoVisible === 'elemento1'">        
-        <div class="preview oculto" data-target="p-1">
+        <div class="preview oculto" data-target="p-1" data-id="1">
           <div class="img-oculto">
             <img src="assets/p1.jpg" alt="Producto 1" width="500px" />
           </div>
@@ -91,9 +91,9 @@
               Silla madera, acolchado gris, elegante y cómoda, perfecta para
               interiores con estilo y confort duradero.
             </p>
-            <div class="price">$19.500</div>
+            <div class="price-oculto">$19.500</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('1')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -112,9 +112,9 @@
               Silla madera, acolchado gris, elegante y cómoda, perfecta para
               interiores con estilo y confort duradero.
             </p>
-            <div class="price">$19.500</div>
+            <div class="price-oculto">$19.500</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('2')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -133,9 +133,9 @@
               Silla chic con patas madera oscura, asiento y respaldo en rosa,
         aporta encanto y frescura a cualquier espacio.
             </p>
-            <div class="price">$22.999</div>
+            <div class="price-oculto">$22.999</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('3')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -154,9 +154,9 @@
               Silla ergonómica de oficina, diseño contemporáneo, ajustes
               personalizados para comodidad laboral y productividad.
             </p>
-            <div class="price">$17.999</div>
+            <div class="price-oculto">$17.999</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('4')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -174,9 +174,9 @@
             <p>
               Silla moderna con patas de madera y asiento de plástico negro, fusión de estilo y practicidad en diseño.
             </p>
-            <div class="price">$21.000</div>
+            <div class="price-oculto">$21.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('5')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -195,9 +195,9 @@
               Silla elegante, patas de madera sólida, asiento acolchado en negro,
               combinando estilo y comodidad en un diseño atemporal.
             </p>
-            <div class="price">$16.000</div>
+            <div class="price-oculto">$16.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('6')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -216,9 +216,9 @@
               Silla elegante, patas de madera sólida, asiento acolchado en negro,
               combinando estilo y comodidad en un diseño atemporal.
             </p>
-            <div class="price">$26.000</div>
+            <div class="price-oculto">$26.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('7')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -237,9 +237,9 @@
               Silla de plástico ligera y versátil, perfecta para uso en interiores
               y exteriores.
             </p>
-            <div class="price">$18.000</div>
+            <div class="price-oculto">$18.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('8')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -258,13 +258,50 @@
               Silla con estructura metálica elegante y duradera, adecuada para
         diversos entornos decorativos.
             </p>
-            <div class="price">$19.000</div>
+            <div class="price-oculto">$19.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('9')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
         </div>  
+    </div>
+
+    <!-- Modal sesión inciada -->
+    <div class="modal" tabindex="-1" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Producto añadido</h5>
+            <button (click)="closeModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Producto agregado al carro.</p>
+          </div>
+          <div class="modal-footer">
+            <button (click)="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal sesión no inciada -->
+    <!-- <div class="modal" tabindex="-1" id="loginModal"  data-bs-toggle="modal" data-bs-target="#myModal"> -->
+    <div class="modal" tabindex="-1" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Iniciar sesión</h5>
+            <button (click)="closeModalIniciarS()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>tenes que iniciar sesión para comprar.</p>
+          </div>
+          <div class="modal-footer">
+            <button (click)="redirectToLoguin()" type="button" class="btn btn-secondary">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>  
