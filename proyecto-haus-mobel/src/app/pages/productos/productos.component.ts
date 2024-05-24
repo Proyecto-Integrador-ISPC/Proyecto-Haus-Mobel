@@ -33,9 +33,6 @@ export class ProductosComponent {
     this.parteOcultaVisible = false;
   }
 
-  // agregarAlCarrito() {
-  //   alert('Producto agregado al carrito')
-  // }
   carrito: string[] = [];
 
 
