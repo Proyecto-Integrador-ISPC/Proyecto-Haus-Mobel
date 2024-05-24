@@ -33,9 +33,6 @@ export class ProductosComponent {
     this.parteOcultaVisible = false;
   }
 
-  // agregarAlCarrito() {
-  //   alert('Producto agregado al carrito')
-  // }
   carrito: string[] = [];
 
 
@@ -102,5 +99,9 @@ export class ProductosComponent {
 
   redirectToLoguin(){
     this.router.navigate(['/loguin']);
+  }
+
+  irACarrito(){
+    this.router.navigate(['/carrito']);
   }
 }
