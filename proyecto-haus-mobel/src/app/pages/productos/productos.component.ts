@@ -36,21 +36,28 @@ export class ProductosComponent {
   // agregarAlCarrito() {
   //   alert('Producto agregado al carrito')
   // }
+  carrito: string[] = [];
 
-  //Modal
-  agregarAlCarrito() {
+
+  agregarAlCarrito(productoId: string) {        
 
     if (this.authService.isLoggedIn()) {
-      // Mostrar el modal de agregar al carrito
+      const producto = this.obtenerProductoPorId(productoId); // Obtener el producto por su ID
+      this.carrito.push(producto); // Agregar producto al carrito
+      console.log('Producto agregado al carrito:', producto); // Mostrar en consola
+      
       this.showModal('myModal');
     } else {
       // Mostrar el modal de iniciar sesión
       // this.showModal('loginModal');
-      // alert('debes iniciar sesion')
-       // Mostrar el modal de iniciar sesión
        this.showModalIniciarS('loginModal');
     }
   }
+
+  obtenerProductoPorId(id: string): string {
+    return `Producto ${id}`;
+  }
+  
 
   showModal(myModal: string) {
     const modalDiv = document.getElementById(myModal);

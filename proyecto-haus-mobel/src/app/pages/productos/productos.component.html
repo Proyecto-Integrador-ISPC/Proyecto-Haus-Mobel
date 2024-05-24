@@ -4,7 +4,7 @@
       <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
         <div (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-1" >
+          <div class="product" data-name="p-1">
             <img src="assets/p1.jpg" alt="Producto 1" />
             <h3>Silla Elegance</h3>
             <div class="price">$19.500</div>
@@ -80,7 +80,7 @@
 
       <!-- Contenido de la parte oculta -->
       <div *ngIf="elementoVisible === 'elemento1'">        
-        <div class="preview oculto" data-target="p-1">
+        <div class="preview oculto" data-target="p-1" data-id="1">
           <div class="img-oculto">
             <img src="assets/p1.jpg" alt="Producto 1" width="500px" />
           </div>
@@ -93,7 +93,7 @@
             </p>
             <div class="price-oculto">$19.500</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('1')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -114,7 +114,7 @@
             </p>
             <div class="price-oculto">$19.500</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('2')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -135,7 +135,7 @@
             </p>
             <div class="price-oculto">$22.999</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('3')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -156,7 +156,7 @@
             </p>
             <div class="price-oculto">$17.999</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('4')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -176,7 +176,7 @@
             </p>
             <div class="price-oculto">$21.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('5')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -197,7 +197,7 @@
             </p>
             <div class="price-oculto">$16.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('6')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -218,7 +218,7 @@
             </p>
             <div class="price-oculto">$26.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('7')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -239,7 +239,7 @@
             </p>
             <div class="price-oculto">$18.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('8')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -260,7 +260,7 @@
             </p>
             <div class="price-oculto">$19.000</div>
             <div class="buttons">
-              <button class="cart" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+              <button class="cart" (click)="agregarAlCarrito('9')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
             </div>
           </div>
@@ -279,8 +279,7 @@
             <p>Producto agregado al carro.</p>
           </div>
           <div class="modal-footer">
-            <button (click)="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button (click)="closeModal()" type="button" class="btn btn-primary">Save changes</button>
+            <button (click)="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver carrito</button>
           </div>
         </div>
       </div>

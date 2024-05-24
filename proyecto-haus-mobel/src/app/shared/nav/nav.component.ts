@@ -58,9 +58,9 @@ export class NavComponent {
     //   this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
     // }
 
-    carrito() {
-      this.router.navigate(['/carrito']);
-    }
+    // carrito() {
+    //   this.router.navigate(['/carrito']);
+    // }
 
     misCompras() {
       this.router.navigate(['/compras']);
