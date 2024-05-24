@@ -1,0 +1,129 @@
+.login-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  width: 70%;
+}
+
+.contenedor-principal-loguin{
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.login-container a {
+  color: #8fc53d;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Estilos para las etiquetas de los campos de entrada */
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada */
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para el botón "Iniciar Sesión" */
+.login-container button {
+  background-color: #8fc53d;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.mi-buton {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container button:hover {
+  background-color: #76c500;
+}
+
+/* DASHBOARD */
+.columnas-panel{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.col-izq{
+    width: 60%;
+}
+
+.col-der{    
+    width: 100%;  
+}
+
+.col-child{
+    border-bottom: 1px solid white;
+    background-color: rgb(233, 229, 229);
+    font-size: 15pt;
+    padding: 1rem 0 1rem 0;
+    cursor: pointer;
+}
+
+.info-usuario{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item-info{
+  padding: 0.5rem;
+}
+
+.contenedor-compras{
+  display: flex;
+  flex-direction: column;
+}
+
+.compra1, .compra2, .compra3, .compra4, .compra5, .textoscompra{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* border-bottom: 1px solid white; */
+}
+
+.item-compra{
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0.5rem;
+  /* border-left: 1px solid white; */
+  align-items: center;
+}
+
+.carrito-panel > p,
+.carrito-panel > button {
+  margin: 1rem;
+}

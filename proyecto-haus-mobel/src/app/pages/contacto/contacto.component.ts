@@ -10,18 +10,4 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactoComponent {
 
-  // openModal() {
-  //   const modelDiv = document.getElementById('myModal');
-  //   if(modelDiv!=null) {
-  //     modelDiv.style.display = 'block';
-  //     modelDiv.style.backgroundColor = '#3a393960';
-  //   }
-  // }
-
-  // closeModal() {
-  //   const modelDiv = document.getElementById('myModal');
-  //   if(modelDiv!=null) {
-  //     modelDiv.style.display = 'none';
-  //   }
-  // }
 }

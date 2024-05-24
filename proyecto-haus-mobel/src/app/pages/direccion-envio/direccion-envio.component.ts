@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-carrito',
+  selector: 'app-direccion-envio',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './carrito.component.html',
-  styleUrl: './carrito.component.css'
+  templateUrl: './direccion-envio.component.html',
+  styleUrl: './direccion-envio.component.css'
 })
-export class CarritoComponent {
+export class DireccionEnvioComponent {
   constructor(private router: Router){}
 
-  direccionEnvio(){
-    this.router.navigate(['/direccion-envio']);
+  comprar(){
+    this.router.navigate(['/compra']);
   }
 }
