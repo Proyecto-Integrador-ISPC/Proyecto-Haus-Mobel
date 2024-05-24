@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { LoguinComponent } from '../loguin/loguin.component';
 
 @Component({
   selector: 'app-productos',
@@ -91,4 +92,8 @@ export class ProductosComponent {
   //   // Mostrar el modal de iniciar sesión
   //   this.showModal('loginModal');
   // }
+
+  redirectToLoguin(){
+    this.router.navigate(['/loguin']);
+  }
 }
