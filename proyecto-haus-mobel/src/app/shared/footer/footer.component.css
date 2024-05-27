@@ -45,8 +45,10 @@
   color: var(--text-color);
 }
 .copyright {
-  padding: 20px;
+  margin-top: -10px;
+  padding-bottom: 10px;
   text-align: center;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 991px) {
