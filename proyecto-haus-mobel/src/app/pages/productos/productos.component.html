@@ -92,6 +92,10 @@
               interiores con estilo y confort duradero.
             </p>
             <div class="price-oculto">$19.500</div>
+
+            <label for="cantProducto">Cantidad:</label>
+            <input type="number" id="cantProducto" name="cantProducto" min="1" max="100" value="1" />
+
             <div class="buttons">
               <button class="cart" (click)="agregarAlCarrito('1')">Agregar al Carrito</button>
               <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
@@ -267,7 +271,7 @@
         </div>  
     </div>
 
-    <!-- Modal sesión inciada -->
+    <!-- Modal sesión iniciada -->
     <div class="modal" tabindex="-1" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -285,7 +289,7 @@
       </div>
     </div>
 
-    <!-- Modal sesión no inciada -->
+    <!-- Modal sesión no iniciada -->
     <!-- <div class="modal" tabindex="-1" id="loginModal"  data-bs-toggle="modal" data-bs-target="#myModal"> -->
     <div class="modal" tabindex="-1" id="loginModal">
       <div class="modal-dialog">

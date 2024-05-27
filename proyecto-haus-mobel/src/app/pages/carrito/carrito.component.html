@@ -2,8 +2,34 @@
     <div class="login-container">
         <h2>Carrito</h2>
         <div class="carrito-panel">
-            <p>hola soy la info del carrito</p>
+            
+            <div *ngIf="carrito.length === 0">
+                <p>El carrito está vacío.</p>
+              </div>
+              <div *ngIf="carrito.length > 0">
+                <ul>
+                  <li *ngFor="let producto of carrito">
+                    {{ producto.nombre }} - ${{ producto.precio }}
+                  </li>
+                </ul>
+              </div>
+
             <button (click)="direccionEnvio()" type="button" class="btn btn-secondary">Continuar compra</button>
-        </div>        
+        </div> 
+        
+        
+          <!-- <div *ngIf="carrito.length === 0">
+            <p>El carrito está vacío.</p>
+          </div>
+          <div *ngIf="carrito.length > 0">
+            <ul>
+              <li *ngFor="let producto of carrito">
+                {{ producto }} 
+              </li>
+            </ul>
+          </div> -->
+          
+
+          
       </div>
 </div>

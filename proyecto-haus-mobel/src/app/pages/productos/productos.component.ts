@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { LoguinComponent } from '../loguin/loguin.component';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-productos',
@@ -11,16 +11,17 @@ import { LoguinComponent } from '../loguin/loguin.component';
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
+
 export class ProductosComponent {
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+    private carritoService: CarritoService) { }
 
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
 
   toggleParteOculta() {
     this.parteOcultaVisible = !this.parteOcultaVisible;
-  }
-  
+  }  
 
   abrirElemento(identificador: string) {
     this.parteOcultaVisible = false;
@@ -35,14 +36,12 @@ export class ProductosComponent {
 
   carrito: string[] = [];
 
-
   agregarAlCarrito(productoId: string) {        
 
     if (this.authService.isLoggedIn()) {
-      const producto = this.obtenerProductoPorId(productoId); // Obtener el producto por su ID
-      this.carrito.push(producto); // Agregar producto al carrito
-      console.log('Producto agregado al carrito:', producto); // Mostrar en consola
-      
+      const producto = this.obtenerProductoPorId(productoId);
+      this.carritoService.agregarAlCarrito(producto); // Agregar producto al carrito usando el servicio
+      console.log('Producto agregado al carrito:', producto);
       this.showModal('myModal');
     } else {
       // Mostrar el modal de iniciar sesión
@@ -51,8 +50,13 @@ export class ProductosComponent {
     }
   }
 
-  obtenerProductoPorId(id: string): string {
-    return `Producto ${id}`;
+  // obtenerProductoPorId(id: string): string {
+  //   return `Producto ${id}`;
+  // }
+
+  obtenerProductoPorId(id: string): any {
+    // Implementa la lógica para obtener el producto por su ID
+    return { id, nombre: 'Producto ' + id, precio: 100 }; // Ejemplo simple
   }
   
 
