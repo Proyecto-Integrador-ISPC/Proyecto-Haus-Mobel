@@ -2,7 +2,7 @@ section {
   padding: 50px 10%;
 }
 
-header {
+nav {
   position: fixed;
   width: 100%;
   top: 0;
@@ -12,7 +12,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 18px 100px;
-  background: #edecea;
+  background: #edecea !important;
 }
 
 .logo {
@@ -40,4 +40,30 @@ header {
 
 .navbar a:hover {
   color: var(--main-color);
+}
+
+.navbar-nav{
+  display: flex;
+  align-items: center;
+}
+
+a{
+  cursor: pointer;
+} 
+
+/* .nav-style{
+  border: 1px solid red;
+  width: 100%;
+  display: flex ;
+  justify-content: space-between;
+} */
+
+@media only screen and (max-width: 991px) {
+  .navbar-nav{
+    display: block;
+  }
+
+  .dropdown-menu{
+    width: 50%;
+  }
 }

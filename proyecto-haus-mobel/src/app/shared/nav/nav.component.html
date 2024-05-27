@@ -1,4 +1,4 @@
-<header>
+<!-- <nav>
   <a href="/" class="logo">Haus<span>Mobel</span></a>
   <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -14,17 +14,62 @@
         </svg></a>
         <ul class="dropdown-menu">
           <li><a routerLink="/dashboard">Panel de control</a></li>
-          <!-- <li role="separator" class="divider"></li> -->
           <li><a routerLink="/carrito">Carrito</a></li>
           <li><a (click)="cerrarSesion()">Cerrar sesión</a></li>
         </ul>
-      </li>
-      
+      </li>      
     </ng-container>
 
     <ng-template #loginRegistro>
       <li><a routerLink="/loguin">Login</a></li>
       <li><a routerLink="/registro">Registro</a></li>
     </ng-template>
+
   </ul>
-</header>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid nav-style">
+    <a href="/" class="logo navbar-brand">Haus<span>Mobel</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link active" aria-current="page">Inicio</a> 
+        </li>
+        <li class="nav-item">
+          <a routerLink="/productos" class="nav-link">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/nosotros" class="nav-link">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contacto" class="nav-link">Contacto</a>
+        </li>
+
+        <ng-container *ngIf="isLoggedIn(); else loginRegistro">      
+          <li class="nav-item dropdown" (click)="toggleDropdown()">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">Bienvenido, Usuario <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/dashboard" class="dropdown-item">Panel de control</a></li>
+              <li><a routerLink="/carrito" class="dropdown-item">Carrito</a></li>
+              <li><a (click)="cerrarSesion()" class="dropdown-item">Cerrar sesión</a></li>
+            </ul>
+          </li>      
+        </ng-container>
+    
+        <ng-template #loginRegistro>
+          <li class="nav-item"><a routerLink="/loguin" class="nav-link">Login</a></li>
+          <li class="nav-item"><a routerLink="/registro" class="nav-link">Registro</a></li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>
