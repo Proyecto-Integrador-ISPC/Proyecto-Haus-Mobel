@@ -95,10 +95,15 @@
   cursor: pointer;
 }
 
-.buttons{
+/* .buttons{
   margin: 10px;
-}
+} */
 
 .modal{
   background-color: #3a393960;    
+}
+
+.cantProducto > input{
+  /* border: 1px solid red; */
+  margin: 1rem;
 }
