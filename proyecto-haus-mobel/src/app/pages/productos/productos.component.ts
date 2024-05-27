@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
@@ -101,11 +101,4 @@ export class ProductosComponent {
   //   this.showModal('loginModal');
   // }
 
-  redirectToLoguin(){
-    this.router.navigate(['/loguin']);
-  }
-
-  irACarrito(){
-    this.router.navigate(['/carrito']);
-  }
 }
