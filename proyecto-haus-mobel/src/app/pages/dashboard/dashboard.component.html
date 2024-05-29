@@ -3,11 +3,11 @@
         <h2>Panel de control</h2>
         <div class="columnas-panel">
             <div class="col-izq">
-                <div class="col-child" (click)="mostrarUsuario()">Usuario</div>
-                <div class="col-child" (click)="mostrarCompras()">Compras</div>
-                <div class="col-child" (click)="mostrarEstado()">Estado</div>
-                <div class="col-child" (click)="mostrarHistorial()">Historial</div>
-                <div class="col-child" (click)="mostrarCarrito()">Carrito</div>
+                <div class="col-child" (click)="mostrarSeccion('usuario')">Usuario</div>
+                <div class="col-child" (click)="mostrarSeccion('compras')">Compras</div>
+                <div class="col-child" (click)="mostrarSeccion('estado')">Estado</div>
+                <div class="col-child" (click)="mostrarSeccion('historial')">Historial</div>
+                <div class="col-child" (click)="mostrarSeccion('carrito')">Carrito</div>
             </div>
             <div class="col-der">
                 <ng-container *ngIf="selectedItem === 'usuario'">

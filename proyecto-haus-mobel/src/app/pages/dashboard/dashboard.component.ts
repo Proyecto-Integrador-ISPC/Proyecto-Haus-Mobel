@@ -11,19 +11,7 @@ import { CommonModule } from '@angular/common';
 
 export class DashboardComponent {
   selectedItem: string = 'usuario';
-  mostrarCompras() {
-    this.selectedItem = 'compras';
-  }
-  mostrarEstado() {
-    this.selectedItem = 'estado';
-  }
-  mostrarHistorial() {
-    this.selectedItem = 'historial';
-  }
-  mostrarCarrito() {
-    this.selectedItem = 'carrito';
-  }
-  mostrarUsuario() {
-    this.selectedItem = 'usuario';
+  mostrarSeccion(seccion: string) {
+    this.selectedItem = seccion;
   }
 }
