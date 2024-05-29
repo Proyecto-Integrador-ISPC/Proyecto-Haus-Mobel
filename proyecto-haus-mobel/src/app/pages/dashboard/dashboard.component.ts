@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,19 +11,19 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent {
   selectedItem: string = 'usuario';
-  showPurchases() {
+  mostrarCompras() {
     this.selectedItem = 'compras';
   }
-  showOrderStatus() {
+  mostrarEstado() {
     this.selectedItem = 'estado';
   }
-  showHistorial() {
+  mostrarHistorial() {
     this.selectedItem = 'historial';
   }
-  showCarrito() {
+  mostrarCarrito() {
     this.selectedItem = 'carrito';
   }
-  showUsuario() {
+  mostrarUsuario() {
     this.selectedItem = 'usuario';
   }
 }

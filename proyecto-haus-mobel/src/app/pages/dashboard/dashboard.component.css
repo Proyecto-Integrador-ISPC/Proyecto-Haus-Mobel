@@ -863,3 +863,7 @@ input[type="submit"]:hover {
   /* border-left: 1px solid white; */
   align-items: center;
 }
+
+.table{
+  font-size: 0.9rem;
+}
