@@ -11,8 +11,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 100px;
-  background: #edecea !important;
+  padding: 10px 100px;
+  background: #edecea;
 }
 
 .logo {
