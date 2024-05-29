@@ -90,9 +90,6 @@
 .new-container .box {
   border-radius: 4px;
 }
-.new-container .box .box-img {
-  border-radius: 4px;
-}
 .about {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

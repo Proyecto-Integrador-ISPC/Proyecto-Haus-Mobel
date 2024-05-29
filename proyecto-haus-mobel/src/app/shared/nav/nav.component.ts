@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
 declare var $: any;
 
@@ -44,24 +43,9 @@ export class NavComponent {
     const dropdownMenu = document.querySelector('.dropdown-menu');
     if (dropdownMenu) {
       dropdownMenu.classList.toggle('show');
+      }
     }
-    }
-
-    // toggleCartDropdown(){
-    // const dropdownMenu2 = document.querySelector('.menu2');
-    // if (dropdownMenu2) {
-    //   dropdownMenu2.classList.toggle('show');
-    // }
-    // }
-
-    // private actualizarItemsEnCarrito() {
-    //   this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
-    // }
-
-    // carrito() {
-    //   this.router.navigate(['/carrito']);
-    // }
-
+    
     misCompras() {
       this.router.navigate(['/compras']);
     }

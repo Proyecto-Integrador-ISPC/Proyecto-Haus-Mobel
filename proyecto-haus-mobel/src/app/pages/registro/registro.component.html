@@ -1,50 +1,51 @@
-<div class="signup-container">
-    <h1>¡Bienvenidos a Haus Mobel!</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="nombre">Nombre:</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          formControlName="usuario"
-          placeholder="Ingrese su nombre"
-        />
-        <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
-      </div>
-  
-      <div>
-        <label for="email">Correo Electrónico:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          formControlName="email"
-          placeholder="Ingrese su correo electrónico"
-        />
-        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
-        <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
-      </div>
-  
-      <div>
-        <label for="contrasena">Contraseña:</label>
-        <input
-          type="password"
-          id="contrasena"
-          name="contrasena"
-          formControlName="password"
-          placeholder="Ingrese su contraseña"
-        />
-        <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
-      </div>
-  
-      <div class="button-container">
-        <button type="submit">Registrarse</button>
-      </div>
-    </form>
-  
-    <p>
-      ¿Ya tienes una cuenta? <button (click)="iniciarSesion()">Iniciar Sesión</button>
-    </p>
-  </div>
-  
+<main>
+  <div class="signup-container">
+      <h1>¡Bienvenidos a Haus Mobel!</h1>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            formControlName="usuario"
+            placeholder="Ingrese su nombre"
+          />
+          <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
+        </div>
+    
+        <div>
+          <label for="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            formControlName="email"
+            placeholder="Ingrese su correo electrónico"
+          />
+          <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
+          <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
+        </div>
+    
+        <div>
+          <label for="contrasena">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            formControlName="password"
+            placeholder="Ingrese su contraseña"
+          />
+          <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
+        </div>
+    
+        <div class="button-container">
+          <button type="submit">Registrarse</button>
+        </div>
+      </form>
+    
+      <p>
+        ¿Ya tienes una cuenta? <button routerLink="/loguin">Iniciar Sesión</button>
+      </p>
+    </div>
+</main>
