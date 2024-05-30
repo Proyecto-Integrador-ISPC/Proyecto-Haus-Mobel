@@ -152,29 +152,11 @@
                         </table>
                     </div>
                 </ng-container>
+                
                 <ng-container *ngIf="selectedItem === 'carrito'">
                     <h5>Productos en carrito</h5>
                     <div class="contenedor-compras">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Pedido</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Cant.</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#0005</td>
-                                    <td>Silla Harmony</td>
-                                    <td>$22.999</td>
-                                    <td>1</td>
-                                    <td>$22.999</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <app-carrito-items></app-carrito-items>
                     </div>
                 </ng-container>
             </div>
