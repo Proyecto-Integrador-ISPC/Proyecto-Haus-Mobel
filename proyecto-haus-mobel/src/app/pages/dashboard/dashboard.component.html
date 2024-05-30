@@ -152,56 +152,13 @@
                         </table>
                     </div>
                 </ng-container>
-                <!-- <ng-container *ngIf="selectedItem === 'carrito'">
-                    <h5>Productos en carrito</h5>
-                    <div class="contenedor-compras">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Pedido</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Cant.</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#0005</td>
-                                    <td>Silla Harmony</td>
-                                    <td>$22.999</td>
-                                    <td>1</td>
-                                    <td>$22.999</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </ng-container> -->
+                
                 <ng-container *ngIf="selectedItem === 'carrito'">
                     <h5>Productos en carrito</h5>
                     <div class="contenedor-compras">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Pedido</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Cant.</th>
-                            <th>Subtotal</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let producto of productos; let i = index">
-                            <td>#{{ i + 1 | number: '2.0' }}</td>
-                            <td>{{ producto.nombre }}</td>
-                            <td>${{ producto.precio }}</td>
-                            <td>{{ producto.cantidad }}</td>
-                            <td>${{ calcularSubtotal(producto) }}</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        <app-carrito-items></app-carrito-items>
                     </div>
-                  </ng-container>
+                </ng-container>
             </div>
         </div>        
       </div>

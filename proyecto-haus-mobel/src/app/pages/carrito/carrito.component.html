@@ -1,35 +1,11 @@
 <div class="contenedor-principal-loguin">
     <div class="login-container">
         <h2>Carrito</h2>
-        <div class="carrito-panel">
-            
-            <div *ngIf="carrito.length === 0">
-                <p>El carrito está vacío.</p>
-              </div>
-              <div *ngIf="carrito.length > 0">
-                <ul>
-                  <li *ngFor="let producto of carrito">
-                    {{ producto.nombre }} - ${{ producto.precio }}
-                  </li>
-                </ul>
-              </div>
+        <div class="carrito-panel">    
+
+              <app-carrito-items></app-carrito-items>
 
             <button routerLink="/direccion-envio" type="button" class="btn btn-secondary">Continuar compra</button>
-        </div> 
-        
-        
-          <!-- <div *ngIf="carrito.length === 0">
-            <p>El carrito está vacío.</p>
-          </div>
-          <div *ngIf="carrito.length > 0">
-            <ul>
-              <li *ngFor="let producto of carrito">
-                {{ producto }} 
-              </li>
-            </ul>
-          </div> -->
-          
-
-          
+        </div>   
       </div>
 </div>

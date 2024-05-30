@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { CarritoService } from '../../services/carrito.service';
+import { CarritoItemsComponent } from '../../shared/carrito-items/carrito-items.component';
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CarritoItemsComponent],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
@@ -26,5 +27,9 @@ export class CarritoComponent implements OnInit{
 
   private actualizarCarrito() {
     this.carrito = this.carritoService.obtenerCarrito();
+  }
+
+  calcularSubtotal(producto: any): number {
+    return producto.precio * producto.cantidad;
   }
 }

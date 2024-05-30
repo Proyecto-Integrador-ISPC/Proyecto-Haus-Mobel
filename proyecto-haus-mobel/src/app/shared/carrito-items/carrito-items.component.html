@@ -1,0 +1,26 @@
+<div *ngIf="carrito.length === 0">
+    <p>El carrito está vacío.</p>
+  </div>
+  <div *ngIf="carrito.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Pedido</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cant.</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of carrito; let i = index">
+          <td>#{{ i + 1 | number: '2.0' }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>${{ producto.precio }}</td>
+          <td>{{ producto.cantidad }}</td>
+          <td>${{ calcularSubtotal(producto) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
