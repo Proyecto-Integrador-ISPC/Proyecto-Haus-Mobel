@@ -13,6 +13,9 @@ import { CarritoService } from '../../services/carrito.service';
 export class DashboardComponent implements OnInit{
   selectedItem: string = 'usuario';
 
+  mostrarSeccion(seccion: string) {
+    this.selectedItem = seccion;
+  }
   productos: any[] = [];
 
   constructor(private carritoService: CarritoService) { }
@@ -25,7 +28,4 @@ export class DashboardComponent implements OnInit{
     return producto.precio * producto.cantidad; 
   }
 
-  mostrarSeccion(seccion: string) {
-    this.selectedItem = seccion;
-  }
 }

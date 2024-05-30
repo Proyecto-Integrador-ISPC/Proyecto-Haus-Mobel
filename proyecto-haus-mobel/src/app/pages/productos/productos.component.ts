@@ -40,6 +40,12 @@ export class ProductosComponent {
 
     if (this.authService.isLoggedIn()) {
       const producto = this.obtenerProductoPorId(productoId);
+    
+      const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
+      const cantidad = parseInt(cantidadInput.value, 10);
+      
+      producto.cantidad = cantidad;
+
       this.carritoService.agregarAlCarrito(producto); // Agregar producto al carrito usando el servicio
       console.log('Producto agregado al carrito:', producto);
       this.showModal('myModal');
