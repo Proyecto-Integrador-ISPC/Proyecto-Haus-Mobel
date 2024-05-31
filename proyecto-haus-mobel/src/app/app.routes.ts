@@ -12,7 +12,8 @@ import { DireccionEnvioComponent } from './pages/direccion-envio/direccion-envio
 import { CompraComponent } from './pages/compra/compra.component';
 import { Error404Component } from './pages/error404/error404.component';
 
-export const routes: Routes = [
+export const routes: Routes = [ 
+    {path:"", redirectTo:"/home", pathMatch:"full"}
     {path:"", component:HomeComponent, pathMatch:"full"},
     {path:"home", component:HomeComponent},
     {path:"productos", component:ProductosComponent},
@@ -24,6 +25,5 @@ export const routes: Routes = [
     {path:"carrito", component:CarritoComponent},
     {path:"direccion-envio", component:DireccionEnvioComponent},
     {path:"compra", component:CompraComponent}
-    {path:"", redirectTo:"/home", pathMatch:"full"}
     {path:"**", Component: Error404Component}
 ];
