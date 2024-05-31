@@ -1,0 +1,165 @@
+<div class="contenedor-principal-dashboard">
+    <div class="dashboard-container">
+        <h2>Panel de control</h2>
+        <div class="columnas-panel">
+            <div class="col-izq">
+                <div class="col-child" (click)="mostrarSeccion('usuario')">Usuario</div>
+                <div class="col-child" (click)="mostrarSeccion('compras')">Compras</div>
+                <div class="col-child" (click)="mostrarSeccion('estado')">Estado</div>
+                <div class="col-child" (click)="mostrarSeccion('historial')">Historial</div>
+                <div class="col-child" (click)="mostrarSeccion('carrito')">Carrito</div>
+            </div>
+            <div class="col-der">
+                <ng-container *ngIf="selectedItem === 'usuario'">
+                    <h5>Información de Usuario</h5>
+                    <div class="contenedor-compras">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Información</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nombre:</td>
+                                    <td>Juan Perez</td>
+                                </tr>
+                                <tr>
+                                    <td>Usuario:</td>
+                                    <td>Usuario</td>
+                                </tr>
+                                <tr>
+                                    <td>Dirección:</td>
+                                    <td>Av. Colón 000</td>
+                                </tr>
+                                <tr>
+                                    <td>Teléfono:</td>
+                                    <td>+5490000000</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>juanperez&#64;email.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'compras'">
+                    <h5>Compras recientes</h5>
+                    <div class="contenedor-compras">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cant.</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#0003</td>
+                                    <td>Silla Zenith</td>
+                                    <td>$21.000</td>
+                                    <td>3</td>
+                                    <td>$63.000</td>
+                                </tr>
+                                <tr>
+                                    <td>#0004</td>
+                                    <td>Silla Smart</td>
+                                    <td>$18.000</td>
+                                    <td>1</td>
+                                    <td>$18.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'estado'">
+                    <h5>Estado de los pedidos</h5>
+                    <div class="contenedor-compras">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#0001</td>
+                                    <td>02/10/23</td>
+                                    <td>Terminado</td>
+                                </tr>
+                                <tr>
+                                    <td>#0002</td>
+                                    <td>12/12/23</td>
+                                    <td>Terminado</td>
+                                </tr>
+                                <tr>
+                                    <td>#0003</td>
+                                    <td>01/05/24</td>
+                                    <td>En proceso</td>
+                                </tr>
+                                <tr>
+                                    <td>#0004</td>
+                                    <td>10/05/24</td>
+                                    <td>En proceso</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedItem === 'historial'">
+                    <h5>Todas las compras realizadas</h5>
+                    <div class="contenedor-compras">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cant.</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#0001</td>
+                                    <td>Silla Elegance</td>
+                                    <td>$19.500</td>
+                                    <td>4</td>
+                                    <td>$78.000</td>
+                                </tr>
+                                <tr>
+                                    <td>#0002</td>
+                                    <td>Silla Harmony</td>
+                                    <td>$22.999</td>
+                                    <td>1</td>
+                                    <td>$22.999</td>
+                                </tr>
+                                <tr>
+                                    <td>#0003</td>
+                                    <td>Silla Zenith</td>
+                                    <td>$21.000</td>
+                                    <td>3</td>
+                                    <td>$63.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+                
+                <ng-container *ngIf="selectedItem === 'carrito'">
+                    <h5>Productos en carrito</h5>
+                    <div class="contenedor-compras">
+                        <app-carrito-items></app-carrito-items>
+                    </div>
+                </ng-container>
+            </div>
+        </div>        
+      </div>
+</div>

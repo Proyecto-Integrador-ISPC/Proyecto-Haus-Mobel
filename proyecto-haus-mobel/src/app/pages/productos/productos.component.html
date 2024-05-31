@@ -1,0 +1,314 @@
+<main>
+  <div class="container">
+    <div class="products-container">
+      <div *ngIf="!parteOcultaVisible" class="all-products-container">
+        
+        <div (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-1">
+            <img src="assets/p1.jpg" alt="Producto 1" />
+            <h3>Silla Elegance</h3>
+            <div class="price">$19.500</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento2')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-2">
+            <img src="assets/p2.jpg" alt="Producto 2" />
+            <h3>Silla BellaVista</h3>
+            <div class="price">$15.000</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento3')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-3">
+            <img src="assets/p3.jpg" alt="Producto 3" />
+            <h3>Silla Harmony</h3>
+            <div class="price">$22.999</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento4')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-4">
+            <img src="assets/p4.jpg" alt="Producto 4" />
+            <h3>Silla Luna</h3>
+            <div class="price">$17.999</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento5')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-5">
+            <img src="assets/p5.jpg" alt="Producto 5" />
+            <h3>Silla Zenith</h3>
+            <div class="price">$21.000</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento6')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-6">
+            <img src="assets/p6.jpg" alt="Producto 6" />
+            <h3>Silla ComfortPlus</h3>
+            <div class="price">$16.000</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento7')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-7">
+            <img src="assets/new1.jpg" alt="Producto 7" />
+            <h3>Silla DreamWave</h3>
+            <div class="price">$26.000</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento8')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-8">
+            <img src="assets/new2.jpg" alt="Producto 8" />
+            <h3>Silla SmartSiesta</h3>
+            <div class="price">$18.000</div>
+          </div>
+        </div>
+
+        <div (click)="abrirElemento('elemento9')" (click)="toggleParteOculta()">
+          <div class="product" data-name="p-9">
+            <img src="assets/new3.jpg" alt="Producto 9" />
+            <h3>Silla CozyHaven</h3>
+            <div class="price">$19.999</div>
+          </div>
+        </div>
+          
+      </div>
+    </div> 
+
+      <!-- Contenido de la parte oculta -->
+      <div *ngIf="elementoVisible === 'elemento1'">        
+        <div class="preview oculto" data-target="p-1" data-id="1">
+          <div class="img-oculto">
+            <img src="assets/p1.jpg" alt="Producto 1" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla Elegance</h3>          
+            <p>
+              Silla madera, acolchado gris, elegante y cómoda, perfecta para
+              interiores con estilo y confort duradero.
+            </p>
+            <div class="price-oculto">$19.500</div>
+
+            <div class="cantProducto">
+              <label for="cantProducto">Cantidad:</label>
+              <input type="number" id="cantProducto" name="cantProducto" min="1" max="100" value="1" style="width: 3em" />
+            </div>
+
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('1')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <div *ngIf="elementoVisible === 'elemento2'">        
+        <div class="preview oculto" data-target="p-2">
+          <div class="img-oculto">
+            <img src="assets/p2.jpg" alt="Producto 2" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla BellaVista</h3>          
+            <p>
+              Silla madera, acolchado gris, elegante y cómoda, perfecta para
+              interiores con estilo y confort duradero.
+            </p>
+            <div class="price-oculto">$19.500</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('2')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento3'">        
+        <div class="preview oculto" data-target="p-3">
+          <div class="img-oculto">
+            <img src="assets/p3.jpg" alt="Producto 3" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla Harmony</h3>          
+            <p>
+              Silla chic con patas madera oscura, asiento y respaldo en rosa,
+        aporta encanto y frescura a cualquier espacio.
+            </p>
+            <div class="price-oculto">$22.999</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('3')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento4'">        
+        <div class="preview oculto" data-target="p-4">
+          <div class="img-oculto">
+            <img src="assets/p4.jpg" alt="Producto 4" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla Luna</h3>          
+            <p>
+              Silla ergonómica de oficina, diseño contemporáneo, ajustes
+              personalizados para comodidad laboral y productividad.
+            </p>
+            <div class="price-oculto">$17.999</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('4')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento5'">        
+        <div class="preview oculto" data-target="p-5">
+          <div class="img-oculto">
+            <img src="assets/p5.jpg" alt="Producto 5" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla Zenith</h3>          
+            <p>
+              Silla moderna con patas de madera y asiento de plástico negro, fusión de estilo y practicidad en diseño.
+            </p>
+            <div class="price-oculto">$21.000</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('5')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento6'">        
+        <div class="preview oculto" data-target="p-6">
+          <div class="img-oculto">
+            <img src="assets/p6.jpg" alt="Producto 6" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla ComfortPlus</h3>          
+            <p>
+              Silla elegante, patas de madera sólida, asiento acolchado en negro,
+              combinando estilo y comodidad en un diseño atemporal.
+            </p>
+            <div class="price-oculto">$16.000</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('6')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento7'">        
+        <div class="preview oculto" data-target="p-7">
+          <div class="img-oculto">
+            <img src="assets/new1.jpg" alt="Producto 7" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla DreamWave</h3>          
+            <p>
+              Silla elegante, patas de madera sólida, asiento acolchado en negro,
+              combinando estilo y comodidad en un diseño atemporal.
+            </p>
+            <div class="price-oculto">$26.000</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('7')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento8'">        
+        <div class="preview oculto" data-target="p-8">
+          <div class="img-oculto">
+            <img src="assets/new2.jpg" alt="Producto 8" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla SmartSiesta</h3>          
+            <p>
+              Silla de plástico ligera y versátil, perfecta para uso en interiores
+              y exteriores.
+            </p>
+            <div class="price-oculto">$18.000</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('8')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+      <div *ngIf="elementoVisible === 'elemento9'">        
+        <div class="preview oculto" data-target="p-9">
+          <div class="img-oculto">
+            <img src="assets/new3.jpg" alt="Producto 9" width="500px" />
+          </div>
+
+          <div class="textos-ocultos">
+            <h3>Silla CozyHaven</h3>          
+            <p>
+              Silla con estructura metálica elegante y duradera, adecuada para
+        diversos entornos decorativos.
+            </p>
+            <div class="price-oculto">$19.000</div>
+            <div class="buttons">
+              <button class="cart" (click)="agregarAlCarrito('9')">Agregar al Carrito</button>
+              <button class="cerrar-btn" (click)="cerrarElemento()">Cerrar</button>
+            </div>
+          </div>
+        </div>  
+    </div>
+
+    <!-- Modal sesión iniciada -->
+    <div class="modal" tabindex="-1" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Producto añadido</h5>
+            <button (click)="closeModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Producto agregado al carro.</p>
+          </div>
+          <div class="modal-footer">
+            <button routerLink="/carrito" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal sesión no iniciada -->
+    <!-- <div class="modal" tabindex="-1" id="loginModal"  data-bs-toggle="modal" data-bs-target="#myModal"> -->
+    <div class="modal" tabindex="-1" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Iniciar sesión</h5>
+            <button (click)="closeModalIniciarS()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>tenes que iniciar sesión para comprar.</p>
+          </div>
+          <div class="modal-footer">
+            <button routerLink="/loguin" type="button" class="btn btn-secondary">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+</main>
