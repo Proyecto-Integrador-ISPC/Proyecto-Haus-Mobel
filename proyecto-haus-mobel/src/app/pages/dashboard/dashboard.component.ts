@@ -1,30 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { CarritoService } from '../../services/carrito.service';
+import { CarritoItemsComponent } from '../../shared/carrito-items/carrito-items.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CarritoItemsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   selectedItem: string = 'usuario';
-  showPurchases() {
-    this.selectedItem = 'compras';
+
+  mostrarSeccion(seccion: string) {
+    this.selectedItem = seccion;
   }
-  showOrderStatus() {
-    this.selectedItem = 'estado';
+  productos: any[] = [];
+
+  constructor(private carritoService: CarritoService) { }
+
+  ngOnInit(): void {
+    this.productos = this.carritoService.obtenerCarrito();
   }
-  showHistorial() {
-    this.selectedItem = 'historial';
+
+  calcularSubtotal(producto: any): number {
+    return producto.precio * producto.cantidad; 
   }
-  showCarrito() {
-    this.selectedItem = 'carrito';
-  }
-  showUsuario() {
-    this.selectedItem = 'usuario';
-  }
+
 }
