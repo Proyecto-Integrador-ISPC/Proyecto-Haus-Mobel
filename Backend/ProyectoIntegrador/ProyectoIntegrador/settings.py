@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'Hausmobel',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    ]
 
 ROOT_URLCONF = 'ProyectoIntegrador.urls'
 
@@ -82,7 +91,7 @@ DATABASES = {
 'ENGINE': 'django.db.backends.mysql',
 'NAME': 'hausmobel',
 'USER': 'root',
-'PASSWORD': '1234',
+'PASSWORD': 'root',
 'HOST': 'localhost',
 'PORT': '3306',
 'OPTIONS': {
