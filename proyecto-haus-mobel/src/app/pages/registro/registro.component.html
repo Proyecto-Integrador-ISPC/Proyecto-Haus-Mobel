@@ -3,13 +3,13 @@
       <h1>¡Bienvenidos a Haus Mobel!</h1>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
-          <label for="nombre">Nombre:</label>
+          <label for="nombre">Nombre Completo:</label>
           <input
             type="text"
             id="nombre"
             name="nombre"
             formControlName="usuario"
-            placeholder="Ingrese su nombre"
+            placeholder="Ingrese su nombre completo"
           />
           <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
         </div>
