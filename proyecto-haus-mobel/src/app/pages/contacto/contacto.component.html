@@ -3,15 +3,18 @@
       <div class="contact-container">
         <h1 class="contact-name">Contacto</h1>
 
-        <form id="contact-form" action="procesar.php" method="POST">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="input-container">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input type="text" id="nombre" name="nombre" formControlName="nombre" />
+            <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">Nombre requerido.</div>
           </div>
 
           <div class="input-container">
             <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" formControlName="email" />
+            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
+          <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
           </div>
 
           <div class="input-container">
@@ -20,8 +23,9 @@
               id="mensaje"
               name="mensaje"
               rows="4"
-              required
+              formControlName="mensaje"
             ></textarea>
+            <div *ngIf="form.get('mensaje')?.invalid && form.get('mensaje')?.touched">Mensaje requerido.</div>
           </div>
 
           <div class="button-contact">
