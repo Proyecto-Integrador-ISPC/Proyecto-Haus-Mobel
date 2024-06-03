@@ -9,7 +9,6 @@
             id="nombre"
             name="nombre"
             formControlName="usuario"
-            placeholder="Ingrese su nombre completo"
           />
           <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
         </div>
@@ -21,7 +20,6 @@
             id="email"
             name="email"
             formControlName="email"
-            placeholder="Ingrese su correo electrónico"
           />
           <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
           <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
@@ -34,7 +32,6 @@
             id="contrasena"
             name="contrasena"
             formControlName="password"
-            placeholder="Ingrese su contraseña"
           />
           <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
         </div>
