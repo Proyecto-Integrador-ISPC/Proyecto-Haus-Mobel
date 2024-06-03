@@ -7,13 +7,14 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Error404Component } from './pages/error404/error404.component';
 import { CarritoItemsComponent } from './shared/carrito-items/carrito-items.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { LoguinComponent } from './pages/loguin/loguin.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, HomeComponent, FooterComponent, ProductosComponent, LoguinComponent, NgbModule, Error404Component, CarritoItemsComponent ],
+  imports: [RouterOutlet, NavComponent, HomeComponent, FooterComponent, ProductosComponent, LoguinComponent, NgbModule, Error404Component, CarritoItemsComponent, MatIconModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
