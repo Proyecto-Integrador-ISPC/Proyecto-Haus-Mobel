@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CarritoService } from '../../services/carrito.service';
+import { ListaProductosService } from '../../services/lista-productos.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,6 +14,7 @@ import { CarritoService } from '../../services/carrito.service';
 })
 
 export class ProductosComponent {
+  productList:any;
 
   productos = [
     { id: 1, nombre: 'Silla Elegance', precio: "$19.500", descripcion: 'Silla madera, acolchado gris, elegante y cómoda, perfecta para interiores con estilo y confort duradero.', imagenUrl: 'assets/p1.jpg' },
@@ -26,8 +28,22 @@ export class ProductosComponent {
     { id: 9, nombre: 'Silla CozyHaven', precio: "$19.999", descripcion: 'Silla con estructura metálica elegante y duradera, adecuada para diversos entornos decorativos.', imagenUrl: 'assets/new3.jpg' },
   ];
 
-  constructor(private authService: AuthService, private router: Router,
-    private carritoService: CarritoService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private carritoService: CarritoService,
+    private listaProductosService: ListaProductosService
+  ) {
+    this.listaProductosService.obtenerProductos().subscribe({
+      next: (productList) => {
+        this.productList = productList;
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
+
 
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
