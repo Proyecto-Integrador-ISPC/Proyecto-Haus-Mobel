@@ -13,6 +13,19 @@ import { CarritoService } from '../../services/carrito.service';
 })
 
 export class ProductosComponent {
+
+  productos = [
+    { id: 1, nombre: 'Silla Elegance', precio: "$19.500", descripcion: 'Silla madera, acolchado gris, elegante y cómoda, perfecta para interiores con estilo y confort duradero.', imagenUrl: 'assets/p1.jpg' },
+    { id: 2, nombre: 'Silla Bellavista', precio: "$15.500", descripcion: 'Silla madera, acolchado gris, elegante y cómoda, perfecta para interiores con estilo y confort duradero.', imagenUrl: 'assets/p2.jpg' },
+    { id: 3, nombre: 'Silla Harmony', precio: "$22.999", descripcion: 'Silla chic con patas madera oscura, asiento y respaldo en rosa, aporta encanto y frescura a cualquier espacio.', imagenUrl: 'assets/p3.jpg' },
+    { id: 4, nombre: 'Silla Luna', precio: "$17.999", descripcion: 'Silla ergonómica de oficina, diseño contemporáneo, ajustes personalizados para comodidad laboral y productividad..', imagenUrl: 'assets/p4.jpg' },
+    { id: 5, nombre: 'Silla Zenith', precio: "$21.000", descripcion: 'Silla moderna con patas de madera y asiento de plástico negro, fusión de estilo y practicidad en diseño.', imagenUrl: 'assets/p5.jpg' },
+    { id: 6, nombre: 'Silla Confortplus', precio: "$16.000", descripcion: 'Silla elegante, patas de madera sólida, asiento acolchado en negro, combinando estilo y comodidad en un diseño atemporal..', imagenUrl: 'assets/p6.jpg' },
+    { id: 7, nombre: 'Silla Dreamwave', precio: "$26.000", descripcion: 'Silla elegante, patas de madera sólida, asiento acolchado en negro, combinando estilo y comodidad en un diseño atemporal.', imagenUrl: 'assets/new1.jpg' },
+    { id: 8, nombre: 'Silla Smartsiesta', precio: "$18.000", descripcion: 'Silla de plástico ligera y versátil, perfecta para uso en interiores y exteriores.', imagenUrl: 'assets/new2.jpg' },
+    { id: 9, nombre: 'Silla CozyHaven', precio: "$19.999", descripcion: 'Silla con estructura metálica elegante y duradera, adecuada para diversos entornos decorativos.', imagenUrl: 'assets/new3.jpg' },
+  ];
+
   constructor(private authService: AuthService, private router: Router,
     private carritoService: CarritoService) { }
 
@@ -46,23 +59,18 @@ export class ProductosComponent {
       
       producto.cantidad = cantidad;
 
-      this.carritoService.agregarAlCarrito(producto); // Agregar producto al carrito usando el servicio
+      this.carritoService.agregarAlCarrito(producto);
       console.log('Producto agregado al carrito:', producto);
       this.showModal('myModal');
     } else {
-      // Mostrar el modal de iniciar sesión
-      // this.showModal('loginModal');
        this.showModalIniciarS('loginModal');
     }
   }
 
-  // obtenerProductoPorId(id: string): string {
-  //   return `Producto ${id}`;
-  // }
+
 
   obtenerProductoPorId(id: string): any {
-    // Implementa la lógica para obtener el producto por su ID
-    return { id, nombre: 'Producto ' + id, precio: 100 }; // Ejemplo simple
+    return { id, nombre: 'Producto ' + id, precio: 100 }; 
   }
   
 
@@ -95,16 +103,5 @@ export class ProductosComponent {
       modelDiv.style.display = 'none';
     }
   }
-  // closeModal(modalId: string) {
-  //   const modalDiv = document.getElementById('modalId');
-  //   if(modalDiv!=null) {
-  //     modalDiv.style.display = 'none';
-  //   }
-  // }
-
-  // showLoginModal() {
-  //   // Mostrar el modal de iniciar sesión
-  //   this.showModal('loginModal');
-  // }
 
 }
