@@ -1,0 +1,57 @@
+[
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p1.jpg",
+      "Nombre": "Silla ergonómica",
+      "Precio": 56000,
+      "Descripción": "Silla ergonómica diseñada para proporcionar el máximo confort durante largas horas de trabajo."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p2.jpg",
+      "Nombre": "Sillón blanco marfil",
+      "Precio": 82000,
+      "Descripción": "Elegante sillón en color marfil, perfecto para añadir un toque de sofisticación a cualquier espacio."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p3.jpg",
+      "Nombre": "Sillón rosa",
+      "Precio": 79000,
+      "Descripción": "Cómodo sillón rosa, ideal para una decoración moderna y llamativa."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p4.jpg",
+      "Nombre": "Sillón móvil gris",
+      "Precio": 62000,
+      "Descripción": "Práctico sillón móvil en color gris, fácil de desplazar y perfecto para espacios flexibles."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p5.jpg",
+      "Nombre": "Silla plástico negra",
+      "Precio": 60000,
+      "Descripción": "Silla de plástico negra, resistente y elegante, ideal para interiores y exteriores."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/p6.jpg",
+      "Nombre": "Silla plástico negra cómoda",
+      "Precio": 60000,
+      "Descripción": "Cómoda silla de plástico negra, perfecta para largas horas de uso en cualquier ambiente."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/new1.jpg",
+      "Nombre": "Banqueta de pino",
+      "Precio": 15000,
+      "Descripción": "Banqueta hecha de pino, robusta y con un diseño natural y rústico."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/new2.jpg",
+      "Nombre": "Silla de plástico color",
+      "Precio": 35000,
+      "Descripción": "Silla de plástico colorida, ideal para añadir un toque vibrante a cualquier espacio."
+    },
+    {
+      "Foto": "https://github.com/Proyecto-Integrador-ISPC/Proyecto-Haus-Mobel/blob/develop/proyecto-haus-mobel/src/assets/new3.jpg",
+      "Nombre": "Silla de plástico blanca",
+      "Precio": 41500,
+      "Descripción": "Silla de plástico blanca, elegante y versátil para cualquier ambiente."
+    }
+  ]
+  
