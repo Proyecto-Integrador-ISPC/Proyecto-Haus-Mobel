@@ -3,78 +3,12 @@
     <div class="products-container">
       <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
-        <div (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-1">
-            <img src="assets/p1.jpg" alt="Producto 1" />
-            <h3>Silla Elegance</h3>
-            <div class="price">$19.500</div>
-          </div>
-        </div>
+        <div *ngFor="let producto of productos" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
+          <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
+          <h3>{{ producto.nombre }}</h3>
+          <div class="price">Precio: {{ producto.precio }}</div>
+        </div>        
 
-        <div (click)="abrirElemento('elemento2')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-2">
-            <img src="assets/p2.jpg" alt="Producto 2" />
-            <h3>Silla BellaVista</h3>
-            <div class="price">$15.000</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento3')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-3">
-            <img src="assets/p3.jpg" alt="Producto 3" />
-            <h3>Silla Harmony</h3>
-            <div class="price">$22.999</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento4')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-4">
-            <img src="assets/p4.jpg" alt="Producto 4" />
-            <h3>Silla Luna</h3>
-            <div class="price">$17.999</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento5')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-5">
-            <img src="assets/p5.jpg" alt="Producto 5" />
-            <h3>Silla Zenith</h3>
-            <div class="price">$21.000</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento6')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-6">
-            <img src="assets/p6.jpg" alt="Producto 6" />
-            <h3>Silla ComfortPlus</h3>
-            <div class="price">$16.000</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento7')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-7">
-            <img src="assets/new1.jpg" alt="Producto 7" />
-            <h3>Silla DreamWave</h3>
-            <div class="price">$26.000</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento8')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-8">
-            <img src="assets/new2.jpg" alt="Producto 8" />
-            <h3>Silla SmartSiesta</h3>
-            <div class="price">$18.000</div>
-          </div>
-        </div>
-
-        <div (click)="abrirElemento('elemento9')" (click)="toggleParteOculta()">
-          <div class="product" data-name="p-9">
-            <img src="assets/new3.jpg" alt="Producto 9" />
-            <h3>Silla CozyHaven</h3>
-            <div class="price">$19.999</div>
-          </div>
-        </div>
-          
       </div>
     </div> 
 
