@@ -1,0 +1,58 @@
+<main class="contenedor-principal-loguin">
+    <div class="products-container">
+        <!-- caja con todo -->
+        <div class="login-container">
+            <h2>Comprar</h2>
+            <form [formGroup]="form" (ngSubmit)="finalizarCompra()" >
+              <div class="input-container">
+                <label for="numtarjeta">Número de tarjeta:</label>
+                <input type="number" id="numtarjeta" name="numtarjeta" formControlName="numtarjeta"/>
+                <div *ngIf="form.get('numtarjeta')?.invalid && form.get('numtarjeta')?.touched">Completá este dato</div>
+              </div>
+    
+              <div class="input-container">
+                <label for="nombreapellidos">Nombre y apellidos:</label>
+                <input type="text" id="nombreapellidos" name="nombreapellidos" formControlName="nombreapellidos"/>
+                <div *ngIf="form.get('nombreapellidos')?.invalid && form.get('nombreapellidos')?.touched">Como figura en la tarjeta</div>              
+              </div>  
+
+              <div class="input-container">
+                <label for="fechavencimiento">Fecha de vencimiento (Mes / Año):</label>
+                <input type="text" id="fechavencimiento" name="fechavencimiento" formControlName="fechavencimiento"/>              
+              </div>  
+
+              <div class="input-container">
+                <label for="codigoseguridad">Código de seguridad (CVV):</label>
+                <input type="number" id="codigoseguridad" name="codigoseguridad" formControlName="codigoseguridad"/>                             
+              </div>
+
+              <div class="input-container">
+                <label for="dni">DNI del titular:</label>
+                <input type="number" id="dni" name="dni" formControlName="dni"/>                             
+              </div>  
+    
+              <div class="button-contact">
+                <button (click)="finalizarCompra()" type="button" class="btn btn-secondary">Finalizar compra</button>
+              </div>
+            </form>
+        </div>
+
+        <!-- modal -->
+        <div class="modal" tabindex="-1" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Compra finalizada con éxito</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Recibiras un email con la factura de tu compra.</p>
+                </div>
+                <div class="modal-footer">
+                  <button routerLink="/home" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ir a Inicio</button>
+                  <button routerLink="/productos" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</main>

@@ -1,0 +1,47 @@
+<main>
+    <div class="contact-main">
+        <div class="contact-container">
+            <h2>Dirección de envío</h2>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+                <div class="input-container">
+                  <label for="nombre">Nombre Completo:</label>
+                  <input type="text" id="nombre" name="nombre" formControlName="nombre"/>
+                  <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">Nombre requerido.</div>
+                </div>
+      
+                <div class="input-container">
+                  <label for="address">Dirección de envío:</label>
+                  <input type="address" id="address" name="address" formControlName="address"/>
+                  <div *ngIf="form.get('address')?.invalid && form.get('address')?.touched">Dirección requerida.</div>
+    
+                  <label for="numeracion">Numeración:</label>
+                  <input type="number" id="numeracion" name="numeracion" formControlName="numeracion"/>
+                  <div *ngIf="form.get('numeracion')?.invalid && form.get('numeracion')?.touched">Numeración requerida.</div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" formControlName="ciudad"/>
+                    <div *ngIf="form.get('ciudad')?.invalid && form.get('ciudad')?.touched">Ciudad requerida.</div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="pais">País:</label>
+                    <input type="text" id="pais" name="pais" formControlName="pais"/>
+                    <div *ngIf="form.get('pais')?.invalid && form.get('pais')?.touched">País requerido.</div>
+                </div>
+    
+                <div class="input-container">  
+                    <label for="telefono">Teléfono:</label>
+                    <input type="number" id="telefono" name="telefono" formControlName="telefono"/>
+                    <div *ngIf="form.get('telefono')?.invalid && form.get('telefono')?.touched">Teléfono requerida.</div>
+                  </div>
+      
+                 
+                <div class="button-contact">
+                    <button routerLink="/compra" type="button" class="btn btn-pagar">Ir a pagar</button>
+                </div>
+              </form>        
+          </div>
+    </div>
+</main>
