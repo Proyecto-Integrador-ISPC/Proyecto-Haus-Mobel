@@ -1,6 +1,6 @@
 # Proyecto Integrador - ISPC
 
-![](Frontend/img/Logo.png)
+![](proyecto-haus-mobel/src/assets/logo.jpg)
 
 Integrantes:
 

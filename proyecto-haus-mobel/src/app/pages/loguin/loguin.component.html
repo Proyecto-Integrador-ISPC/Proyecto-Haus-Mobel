@@ -8,8 +8,6 @@
             id="username"
             name="username"
             formControlName="usuario"
-            required
-            placeholder="Ingrese su nombre de usuario"
           />
           <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
     
@@ -19,8 +17,6 @@
             id="password"
             name="password"
             formControlName="password"
-            required
-            placeholder="Ingrese su contraseña"
           />
           <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
           
