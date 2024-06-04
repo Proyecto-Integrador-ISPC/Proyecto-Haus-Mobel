@@ -7,7 +7,16 @@
           <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
           <h3>{{ producto.nombre }}</h3>
           <div class="price">Precio: {{ producto.precio }}</div>
-        </div>        
+          <!-- <p>{{ producto.descripcion }}</p> -->
+        </div>
+        
+        
+        
+        <!-- <div *ngFor="let producto of productos" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
+          <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
+          <h3>{{ producto.nombre }}</h3>
+          <div class="price">Precio: {{ producto.precio }}</div>
+        </div>         -->
 
       </div>
     </div> 
