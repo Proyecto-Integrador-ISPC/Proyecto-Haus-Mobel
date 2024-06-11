@@ -1,7 +1,6 @@
-/* Estilos para pagina de error404 */
 .body_pagina_error404 {
-  background-color: #f8d7da; /* Fondo rojo claro para indicar un error */
-  color: #721c24; /* Color de texto rojo oscuro */
+  background-color: #f8d7da; 
+  color: #721c24; 
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;

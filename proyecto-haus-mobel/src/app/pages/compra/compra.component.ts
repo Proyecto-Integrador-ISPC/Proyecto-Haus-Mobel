@@ -26,10 +26,12 @@ export class CompraComponent {
 
   finalizarCompra(){
     const modalDiv = document.getElementById('myModal');
-    if (modalDiv != null) {
+
+    if (this.form.valid && modalDiv != null) {
       modalDiv.style.display = 'block';
       modalDiv.style.backgroundColor = '#3a393960';
+    } else {
+      this.form.markAllAsTouched();
     }
   }
-
 }

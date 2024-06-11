@@ -26,9 +26,9 @@ export class DireccionEnvioComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      alert("Mensaje enviado exitosamente.")
+      this.router.navigate(['/compra']);
     } else {
-      alert("Por favor, completá todos los campos antes de enviar el mensaje.")
+      this.form.markAllAsTouched();
     }
   }
 }

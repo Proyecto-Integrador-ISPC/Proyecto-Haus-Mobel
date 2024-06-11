@@ -3,7 +3,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-registro',
   standalone: true,
@@ -13,25 +12,19 @@ import { CommonModule } from '@angular/common';
 })
 
 export class RegistroComponent {
- form!:FormGroup;
- constructor(private formBuilder:FormBuilder, private router: Router)
- {
-   this.form=this.formBuilder.group(
-     {
+  form!:FormGroup;
+  constructor(private formBuilder:FormBuilder, private router: Router)
+  {
+    this.form=this.formBuilder.group(
+      {
       usuario: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-     }
-   )
+      }
+    )   
+  }
    
- }
-
- onEnviar(event:Event)
- {
-   console.log(this.form.value)
- }
-   
- iniciarSesion() {
+  iniciarSesion() {
   this.router.navigate(['/loguin']);
   }
 
