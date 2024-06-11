@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-declare var $: any;
 
 @Component({
   selector: 'app-nav',
@@ -14,23 +12,11 @@ declare var $: any;
 })
 
 export class NavComponent {
-  itemsEnCarrito: any[] = []; 
-  constructor(private router: Router) {}
   
-
-  ngOnInit() {
-    // Inicializa Bootstrap manualmente
-    $('[data-toggle="dropdown"]').dropdown();
-    // this.actualizarItemsEnCarrito();
-    // this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
-  }
+  constructor(private router: Router) {}  
 
   isLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
-  }
-
-  getUsername(): string | null {
-    return localStorage.getItem('username');
   }
 
   cerrarSesion() {
@@ -45,9 +31,4 @@ export class NavComponent {
       dropdownMenu.classList.toggle('show');
       }
     }
-    
-    misCompras() {
-      this.router.navigate(['/compras']);
-    }
-
 }

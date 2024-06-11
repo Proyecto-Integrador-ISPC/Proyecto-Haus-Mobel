@@ -1,25 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { BehaviorSubject } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class CarritoService {
-//   private carrito = new BehaviorSubject<any[]>([]);
-//   carrito$ = this.carrito.asObservable();
-
-//   constructor() { }
-
-//   agregarAlCarrito(producto: any) {
-//     const carritoActual = this.carrito.value;
-//     this.carrito.next([...carritoActual, producto]);
-//   }
-
-//   obtenerCarrito() {
-//     return this.carrito.value;
-//   }
-// }
-
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -41,5 +19,3 @@ export class CarritoService {
     return carritoJson ? JSON.parse(carritoJson) : [];
   }
 }
-
-

@@ -16,11 +16,6 @@ export class CarritoComponent implements OnInit{
 
   constructor(private router: Router, private carritoService: CarritoService){}
 
-  // ngOnInit() {
-  //   this.carritoService.carrito$.subscribe(carrito => {
-  //     this.carrito = carrito;
-  //   });
-  // }
   ngOnInit() {
     this.actualizarCarrito();
   }

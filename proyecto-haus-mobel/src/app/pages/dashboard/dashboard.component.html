@@ -3,11 +3,9 @@
         <h2>Panel de control</h2>
         <div class="columnas-panel">
             <div class="col-izq">
-                <div class="col-child" (click)="mostrarSeccion('usuario')">Usuario</div>
-                <div class="col-child" (click)="mostrarSeccion('compras')">Compras</div>
-                <div class="col-child" (click)="mostrarSeccion('estado')">Estado</div>
-                <div class="col-child" (click)="mostrarSeccion('historial')">Historial</div>
-                <div class="col-child" (click)="mostrarSeccion('carrito')">Carrito</div>
+                <div *ngFor="let opcion of opciones" class="col-child" (click)="mostrarSeccion(opcion)">
+                    {{ opcion.charAt(0).toUpperCase() + opcion.slice(1) }}
+                </div>
             </div>
             <div class="col-der">
                 <ng-container *ngIf="selectedItem === 'usuario'">
