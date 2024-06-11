@@ -29,10 +29,12 @@ export class RegistroComponent {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      alert("Registro realizado exitosamente.")
+    const modalDiv = document.getElementById('myModal');
+    if (this.form.valid && modalDiv!=null) {
+      modalDiv.style.display = 'block';
+      modalDiv.style.backgroundColor = '#3a393960';
     } else {
-      alert("Por favor, completá todos los campos antes de registrarte.")
+      this.form.markAllAsTouched();
     }
   }
 }

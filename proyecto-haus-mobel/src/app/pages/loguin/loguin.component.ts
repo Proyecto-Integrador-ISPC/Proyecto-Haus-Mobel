@@ -30,15 +30,11 @@ export class LoguinComponent {
     const password = this.form.get('password')?.value;
 
     if (this.form.valid && usuario === this.usuario && password === this.password) {
-      // console.log('Formulario válido');
-      // alert('¡Bienvenido!');
-      // Almacenar los datos del usuario
-      this.userData = { username: usuario, email: 'usuario@example.com', age: 30 }; // Aquí puedes definir los datos del usuario
+      this.userData = { username: usuario, email: 'usuario@example.com', age: 30 }; 
       localStorage.setItem('isLoggedIn', 'true');
       this.router.navigate(['/home']);
     } else {
-      alert('Usuario o contraseña incorrectos');
+      this.form.markAllAsTouched();
     }
   }
-
 }

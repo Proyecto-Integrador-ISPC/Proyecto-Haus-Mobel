@@ -9,7 +9,7 @@
             name="username"
             formControlName="usuario"
           />
-          <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
+          <div class="required" *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
     
           <label for="password">Contraseña:</label>
           <input
@@ -18,7 +18,7 @@
             name="password"
             formControlName="password"
           />
-          <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
+          <div class="required" *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
           
           <div class="mi-buton">
             <button id="boton" type="submit">Iniciar Sesión</button>
