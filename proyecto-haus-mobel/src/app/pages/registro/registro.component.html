@@ -10,7 +10,7 @@
             name="nombre"
             formControlName="usuario"
           />
-          <div *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
+          <div class="required" *ngIf="form.get('usuario')?.invalid && form.get('usuario')?.touched">Nombre requerido.</div>
         </div>
     
         <div>
@@ -21,8 +21,8 @@
             name="email"
             formControlName="email"
           />
-          <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
-          <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
+          <div class="required" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Correo electrónico requerido.</div>
+          <div class="required" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">El correo electrónico no es válido.</div>
         </div>
     
         <div>
@@ -33,7 +33,7 @@
             name="contrasena"
             formControlName="password"
           />
-          <div *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
+          <div class="required" *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">Contraseña requerida.</div>
         </div>
     
         <div class="button-container">
@@ -44,5 +44,21 @@
       <p>
         ¿Ya tienes una cuenta? <button routerLink="/loguin">Iniciar Sesión</button>
       </p>
+    </div>
+
+    <div class="modal" tabindex="-1" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Registro finalizado</h5>
+          </div>
+          <div class="modal-body">
+            <p>Su registro se ha realizado exitosamente. Recibirá un correo electrónico con información de su registro.</p>
+          </div>
+          <div class="modal-footer">
+            <button routerLink="/loguin" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
     </div>
 </main>
