@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CarritoService } from '../../services/carrito.service';
 import { ListaProductosService } from '../../services/lista-productos.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,7 +14,21 @@ import { ListaProductosService } from '../../services/lista-productos.service';
   styleUrl: './productos.component.css'
 })
 
-export class ProductosComponent {
+export class ProductosComponent implements OnInit {
+  ngOnInit(): void {
+    this.checkApiConnection();
+  }
+
+  checkApiConnection(): void {
+    this.apiService.getProductos().subscribe(response => {
+      if (response.success !== false) {
+        console.log('API connection successful:', response);
+      } else {
+        console.log('API connection failed:', response.message);
+      }
+    });
+  }
+  
   productList:any;
 
   productos = [
@@ -32,7 +47,8 @@ export class ProductosComponent {
     private authService: AuthService,
     private router: Router,
     private carritoService: CarritoService,
-    private listaProductosService: ListaProductosService
+    private listaProductosService: ListaProductosService,
+    private apiService: ApiService
   ) {
     this.listaProductosService.obtenerProductos().subscribe({
       next: (productList) => {
@@ -67,20 +83,20 @@ export class ProductosComponent {
 
   agregarAlCarrito(productoId: string) {        
 
-    if (this.authService.isLoggedIn()) {
-      const producto = this.obtenerProductoPorId(productoId);
+    // if (this.authService.isLoggedIn()) {
+    //   const producto = this.obtenerProductoPorId(productoId);
     
-      const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
-      const cantidad = parseInt(cantidadInput.value, 10);
+    //   const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
+    //   const cantidad = parseInt(cantidadInput.value, 10);
       
-      producto.cantidad = cantidad;
+    //   producto.cantidad = cantidad;
 
-      this.carritoService.agregarAlCarrito(producto);
-      console.log('Producto agregado al carrito:', producto);
-      this.showModal('myModal');
-    } else {
-       this.showModalIniciarS('loginModal');
-    }
+    //   this.carritoService.agregarAlCarrito(producto);
+    //   console.log('Producto agregado al carrito:', producto);
+    //   this.showModal('myModal');
+    // } else {
+    //    this.showModalIniciarS('loginModal');
+    // }
   }
 
 
