@@ -3,17 +3,16 @@
     <div class="products-container">
       <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
-        <!-- <div *ngFor="let producto of productList" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <h3>{{ producto.Nombre }}</h3>
-          <div class="price">Precio: {{ producto.Precio }}</div>
-          <img [src]="producto.Foto" alt="{{ producto.Nombre }}">
-        </div> -->    
-        
         <div *ngFor="let producto of productos" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
           <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
           <h3>{{ producto.nombre }}</h3>
           <div class="price">Precio: {{ producto.precio }}</div>
-        </div>        
+         
+        </div>
+        
+        
+        
+       
 
       </div>
     </div> 
