@@ -88,7 +88,7 @@ class Roles(models.Model):
 
 class Carritos(models.Model):
     idVenta = models.AutoField(primary_key=True)
-    fecha = models.DateField(blank=False)
+    # fecha = models.DateField(blank=False)
     idProducto = models.ForeignKey(Productos, on_delete=models.CASCADE)
     cantidad = models.IntegerField(blank=False)
     importe = models.FloatField(blank=False)

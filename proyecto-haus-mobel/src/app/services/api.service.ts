@@ -58,6 +58,21 @@ export class ApiService {
     );
   }
 
+  agregarAlCarrito(idProducto: number, cantidad: number, importe: number, Idusuario: number) {
+    const carritoItem = {
+      fecha: new Date().toISOString().slice(0, 10),  // Formato YYYY-MM-DD
+      idProducto: idProducto,
+      cantidad: cantidad,
+      importe: importe,
+      Idusuario: Idusuario
+    };
+
+    return this.http.post(this.apiUrls, carritoItem);
+  }
+
+  obtenerCarrito(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
   
   
 

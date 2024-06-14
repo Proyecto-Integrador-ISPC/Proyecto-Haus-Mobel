@@ -11,20 +11,27 @@ import { CarritoItemsComponent } from '../../shared/carrito-items/carrito-items.
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
-export class CarritoComponent implements OnInit{
-  carrito: any[] = [];
+// export class CarritoComponent implements OnInit{
+//   carrito: any[] = [];
+
+//   constructor(private router: Router, private carritoService: CarritoService){}
+
+//   ngOnInit() {
+//     this.actualizarCarrito();
+//   }
+
+//   private actualizarCarrito() {
+//     this.carrito = this.carritoService.obtenerCarrito();
+//   }
+
+//   calcularSubtotal(producto: any): number {
+//     return producto.precio * producto.cantidad;
+//   }
+// }
+
+export class CarritoComponent {
+
 
   constructor(private router: Router, private carritoService: CarritoService){}
 
-  ngOnInit() {
-    this.actualizarCarrito();
-  }
-
-  private actualizarCarrito() {
-    this.carrito = this.carritoService.obtenerCarrito();
-  }
-
-  calcularSubtotal(producto: any): number {
-    return producto.precio * producto.cantidad;
-  }
 }
