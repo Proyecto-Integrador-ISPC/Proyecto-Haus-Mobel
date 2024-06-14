@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { NavComponent } from '../shared/nav/nav.component';
@@ -17,6 +17,7 @@ export class AuthService {
     
   url="http://127.0.0.1:8000/api/registro";
   apiurl="http://127.0.0.1:8000/api/login";
+  apiUrloficial="http://127.0.0.1:8000/api";
   localStorageKey = 'token';
   private loggedIn = false;  
   
@@ -39,15 +40,47 @@ export class AuthService {
   }
 
   // Método para actualizar el estado de autenticación
-  // setLoggedIn(value: boolean): void {
-  //   this.loggedIn = value;
-  // }
   setLoggedIn(value: boolean): void {
     this.loggedIn = value;
     if (value) {
-      localStorage.setItem('token', 'your-token');  // Store the token or a flag
+      localStorage.setItem('token', 'asdasdASDASDASD');  // Store the token or a flag
     } else {
       localStorage.removeItem('token');
     }
   }
+
+  // setLoggedIn(value: boolean, token?: string): void {
+  //   this.loggedIn = value;
+  //   if (value && token) {
+  //     localStorage.setItem('token', token);  // Almacena el token real recibido del servidor
+  //   } else {
+  //     localStorage.removeItem('token');
+  //   }
+  // }
+
+//   setLoggedIn(value: boolean, token?: string): void {
+//   this.loggedIn = value;
+//   if (value && token) {
+//     localStorage.setItem('token', token);  // Almacena el token real
+//   } else {
+//     localStorage.removeItem('token');  // Elimina el token si se cierra sesión
+//   }
+// }
+
+
+// setLoggedIn(value: boolean, token?: string): void {
+//   this.loggedIn = value;
+//   if (value && token) {
+//     localStorage.setItem('token', 'alallalal');  // Store the token or a flag
+//   } else {
+//     localStorage.removeItem('token');
+//   }
+// }
+
+
+  // logout(): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
+  //   return this.http.post(`${this.apiUrloficial}/logout`, {}, { headers });
+  // }
 }

@@ -28,6 +28,15 @@ export class NavComponent {
   cerrarSesion() {
     this.authService.setLoggedIn(false);
     this.router.navigate(['/loguin']);
+    // this.authService.logout().subscribe(
+    //   () => {
+    //     this.authService.setLoggedIn(false);
+    //     this.router.navigate(['/loguin']);
+    //   },
+    //   error => {
+    //     console.error('Error al cerrar sesión:', error);
+    //   }
+    // );
   }
 
   toggleDropdown(){
