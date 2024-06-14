@@ -22,10 +22,11 @@ export class ProductosComponent implements OnInit {
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private carritoService: CarritoService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.listarProductos();
+    this.cargarCarrito();
   }
 
   listarProductos(): void {
@@ -96,21 +97,54 @@ export class ProductosComponent implements OnInit {
   //   });
   // }
 
-  agregarAlCarrito(producto: any) {
-    const carrito = {
-      fecha: new Date(),
-      idProducto: producto.id,
-      cantidad: 1,
-      importe: producto.precio,
-      Idusuario: 1  // Asegúrate que 1 sea un entero válido si Idusuario espera un entero
-    };
+  // agregarAlCarrito(producto: any) {
+  //   const carrito = {
+  //     fecha: new Date(),
+  //     idProducto: producto.id,
+  //     cantidad: 1,
+  //     importe: producto.precio,
+  //     Idusuario: 1  // Asegúrate que 1 sea un entero válido si Idusuario espera un entero
+  //   };
   
-    this.apiService.guardarCarrito(carrito).subscribe({
-      next: response => {
-        console.log('Carrito guardado exitosamente:', response);
+  //   this.apiService.guardarCarrito(carrito).subscribe({
+  //     next: response => {
+  //       console.log('Carrito guardado exitosamente:', response);
+  //     },
+  //     error: error => {
+  //       console.error('Error al guardar el carrito:', error);
+  //     }
+  //   });
+  // }
+
+  agregarAlCarrito(producto: any): void {
+    const cantidad = 1;  // Supongamos que siempre se agrega una unidad por vez
+    const importe = producto.precio;
+    const idProducto = producto.id;
+     // Obtener el ID de usuario
+     const Idusuario = this.authService.obtenerIdUsuario();
+  
+    this.carritoService.agregarAlCarrito(idProducto, cantidad, importe, Idusuario).subscribe({
+      next: (response) => {
+        console.log('Producto agregado al carrito:', response);
+        this.showModal('myModal');
       },
-      error: error => {
-        console.error('Error al guardar el carrito:', error);
+      error: (error) => {
+        console.error('Error al agregar producto al carrito:', error);
+      }
+    });
+  }
+
+
+  cargarCarrito(): void {
+    const Idusuario = 1; // Ajusta este valor según el usuario actual
+
+    this.carritoService.obtenerCarrito(Idusuario).subscribe({
+      next: (carrito: any[]) => {
+        this.carrito = carrito;
+        console.log('Carrito cargado:', this.carrito);
+      },
+      error: (error) => {
+        console.error('Error al cargar el carrito:', error);
       }
     });
   }

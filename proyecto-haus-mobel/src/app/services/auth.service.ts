@@ -58,6 +58,11 @@ export class AuthService {
     }
   }
 
+  obtenerIdUsuario(): number {
+    // Supongamos que obtienes el ID del usuario de tu sistema de autenticación
+    return 6; // Aquí deberías retornar el ID real del usuario logueado
+  }
+
   // setLoggedIn(value: boolean, token?: string): void {
   //   this.loggedIn = value;
   //   if (value && token) {

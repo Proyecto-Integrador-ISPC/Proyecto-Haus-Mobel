@@ -9,20 +9,28 @@ import { CommonModule } from '@angular/common';
   templateUrl: './carrito-items.component.html',
   styleUrl: './carrito-items.component.css'
 })
-export class CarritoItemsComponent implements OnInit {
+// export class CarritoItemsComponent implements OnInit {
+//   carrito: any[] = [];
+
+//   constructor(private carritoService: CarritoService) { }
+
+//   ngOnInit() {
+//     this.actualizarCarrito();
+//   }
+
+//   private actualizarCarrito() {
+//     this.carrito = this.carritoService.obtenerCarrito();
+//   }
+
+//   calcularSubtotal(producto: any): number {
+//     return producto.precio * producto.cantidad;
+//   }
+// }
+
+export class CarritoItemsComponent  {
   carrito: any[] = [];
 
   constructor(private carritoService: CarritoService) { }
 
-  ngOnInit() {
-    this.actualizarCarrito();
-  }
 
-  private actualizarCarrito() {
-    this.carrito = this.carritoService.obtenerCarrito();
-  }
-
-  calcularSubtotal(producto: any): number {
-    return producto.precio * producto.cantidad;
-  }
 }

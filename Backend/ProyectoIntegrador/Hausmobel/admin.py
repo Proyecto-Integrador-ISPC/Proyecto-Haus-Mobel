@@ -15,8 +15,10 @@ class ClientesAdmin(admin.ModelAdmin):
     list_display = ('cuil','nombre','apellido','mail','domicilio','telefono')
 class RolesAdmin(admin.ModelAdmin):
     list_display = ('idRol','descripcion')
+# class CarritosAdmin(admin.ModelAdmin):
+#     list_display = ('idVenta','fecha','idProducto','cantidad','importe','Idusuario')
 class CarritosAdmin(admin.ModelAdmin):
-    list_display = ('idVenta','fecha','idProducto','cantidad','importe','Idusuario')
+    list_display = ('idVenta','idProducto','cantidad','importe','Idusuario')
 
 
 

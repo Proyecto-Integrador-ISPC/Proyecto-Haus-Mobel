@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-9l@tqb%^34_r5whk4knlvs#h(wv0!=+^-g_06912o&588^yyng
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -161,4 +161,4 @@ REST_FRAMEWORK = {
 }
 
 # settings.py
-APPEND_SLASH = True
+# APPEND_SLASH = True
