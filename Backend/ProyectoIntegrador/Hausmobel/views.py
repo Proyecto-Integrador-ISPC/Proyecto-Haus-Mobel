@@ -10,8 +10,8 @@ from rest_framework import permissions
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 
-from .serializer import ProductosSerializer
-from .models import Productos
+from .serializer import ProductosSerializer, CarritosSerializer
+from .models import Productos, Carritos
 
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.contrib.auth.models import User
@@ -19,10 +19,15 @@ from rest_framework.views import APIView
 
 
 class ProductoViewSet(viewsets.ModelViewSet):
- permission_classes = [IsAdminUser]
+ #permission_classes = [IsAdminUser]
  queryset=Productos.objects.all()
  serializer_class= ProductosSerializer
 
+
+class CattiroViewSet(viewsets.ModelViewSet):
+    #permission_classes = [IsAuthenticated]
+    queryset=Carritos.objects.all()
+    serializer_class= CarritosSerializer
 
 
 class RegisterAPI(generics.GenericAPIView):
@@ -61,9 +66,25 @@ class ListarProductos(generics.ListCreateAPIView):
     queryset = Productos.objects.all()
     serializer_class = ProductosSerializer
     http_method_names = ['get']
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
     def list(self, request):
         queryset = self.get_queryset()
         serializer = ProductosSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response(serializer.data)
+        
+class ListarCarritos(generics.ListCreateAPIView):
+    queryset = Carritos.objects.all()
+    serializer_class = CarritosSerializer
+    http_method_names = ['get']
+    #permission_classes = [permissions.IsAuthenticated]
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = CarritosSerializer(queryset, many=True)
+       
+        if self.request.user.is_authenticated:
+            return Response(serializer.data)
+
+class Confirmar(APIView):  # Retornar custom json 
+    def get(self, request):
+        return Response({"respuesta": "Compra realizada con exito"})
