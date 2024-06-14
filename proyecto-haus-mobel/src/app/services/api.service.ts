@@ -13,7 +13,7 @@ export class ApiService {
   constructor(private http:HttpClient) { }
   
   // private apiUrl = 'http://localhost:8000/api';
-  private apiUrl = 'http://127.0.0.1:8000/api/ListarProductos/';
+  private apiUrl = 'http://127.0.0.1:8000/api/ListarProductos';
 
   // Ejemplo de método para obtener productos
   getProductos(): Observable<any> {
@@ -24,11 +24,11 @@ export class ApiService {
     //     return of({ success: false, message: 'Connection failed' });
     //   })
     // );
-    return this.http.get<any[]>(this.apiUrl).pipe(
+    return this.http.get<any>(this.apiUrl).pipe(
       tap(response => console.log('Connection successful:', response)),
       catchError(error => {
         console.error('Connection failed:', error);
-        return of([]); // Retorna un arreglo vacío u otro valor adecuado en caso de error
+        return of({ success: false, message: 'Connection failed', data: [] });
       })
     );
   }
