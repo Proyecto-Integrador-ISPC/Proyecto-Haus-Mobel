@@ -159,3 +159,6 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ]
 }
+
+# settings.py
+APPEND_SLASH = True

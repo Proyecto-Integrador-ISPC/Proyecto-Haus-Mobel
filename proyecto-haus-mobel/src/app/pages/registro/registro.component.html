@@ -3,7 +3,7 @@
       <h1>¡Bienvenidos a Haus Mobel!</h1>
       <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
         <div>
-          <label for="nombre">Nombre Completo:</label>
+          <label for="nombre">Nombre de usuario:</label>
           <input
             type="text"
             id="nombre"
@@ -53,7 +53,7 @@
             <h5 class="modal-title">Registro finalizado</h5>
           </div>
           <div class="modal-body">
-            <p>Su registro se ha realizado exitosamente. Recibirá un correo electrónico con información de su registro.</p>
+            <p>Su registro se ha realizado exitosamente.</p>
           </div>
           <div class="modal-footer">
             <button routerLink="/loguin" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Iniciar sesión</button>
