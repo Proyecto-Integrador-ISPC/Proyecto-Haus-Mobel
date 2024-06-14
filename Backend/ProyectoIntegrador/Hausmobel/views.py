@@ -13,8 +13,13 @@ from knox.views import LoginView as KnoxLoginView
 from .serializer import ProductosSerializer
 from .models import Productos
 
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
+from django.contrib.auth.models import User
+from rest_framework.views import APIView
+
 
 class ProductoViewSet(viewsets.ModelViewSet):
+ permission_classes = [IsAdminUser]
  queryset=Productos.objects.all()
  serializer_class= ProductosSerializer
 
@@ -48,3 +53,17 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+##FIN USUARIOS
+
+
+class ListarProductos(generics.ListCreateAPIView):
+    queryset = Productos.objects.all()
+    serializer_class = ProductosSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.IsAuthenticated]
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = ProductosSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response(serializer.data)
