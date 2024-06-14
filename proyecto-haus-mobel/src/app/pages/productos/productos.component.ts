@@ -60,6 +60,22 @@ export class ProductosComponent implements OnInit {
     });
   }
 
+  listarProductos(): void {
+    if (this.authService.isLoggedIn()) {
+      this.apiService.getProductos().subscribe({
+        next: (products) => {
+          this.productList = products;
+          console.log('Productos obtenidos:', this.productList);
+        },
+        error: (error) => {
+          console.error('Error al obtener productos:', error);
+        }
+      });
+    } else {
+      console.log('Usuario no autenticado. No se puede obtener productos.');
+    }
+  }
+
 
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
