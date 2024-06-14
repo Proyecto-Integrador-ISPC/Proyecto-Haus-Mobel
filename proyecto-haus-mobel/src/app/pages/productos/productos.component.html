@@ -3,18 +3,22 @@
     <div class="products-container">
       <div *ngIf="!parteOcultaVisible" class="all-products-container">
         
-        <!-- <div *ngFor="let producto of productList" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <h3>{{ producto.Nombre }}</h3>
-          <div class="price">Precio: {{ producto.Precio }}</div>
-          <img [src]="producto.Foto" alt="{{ producto.Nombre }}">
-        </div> -->    
-        
-        <div *ngFor="let producto of productos" class="product" data-name="p-1" (click)="abrirElemento('elemento1')" (click)="toggleParteOculta()">
-          <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
+        <div *ngFor="let producto of productList" class="product" [attr.data-name]="'p-' + producto.id">
+          <img [src]="producto.imagen" alt="{{ producto.nombre }}">
           <h3>{{ producto.nombre }}</h3>
           <div class="price">Precio: {{ producto.precio }}</div>
-        </div>        
-
+        
+          <div class="cantProducto">
+            <label [for]="'cantProducto' + producto.id">Cantidad:</label>
+            <input type="number" [id]="'cantProducto' + producto.id" name="cantProducto" min="1" max="100" value="1" style="width: 3em" />
+          </div>
+        
+          <div class="buttons">
+            <button class="cart" (click)="agregarAlCarrito(producto)">Agregar al Carrito</button>
+          </div>
+        </div>
+        
+        
       </div>
     </div> 
 
@@ -214,7 +218,7 @@
     </div>
 
     <!-- Modal sesión iniciada -->
-    <div class="modal" tabindex="-1" id="myModal">
+    <!-- <div class="modal" tabindex="-1" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -229,11 +233,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Modal sesión no iniciada -->
     <!-- <div class="modal" tabindex="-1" id="loginModal"  data-bs-toggle="modal" data-bs-target="#myModal"> -->
-    <div class="modal" tabindex="-1" id="loginModal">
+    <!-- <div class="modal" tabindex="-1" id="loginModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -248,7 +252,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>  
 </main>

@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent {
+
   form!:FormGroup;
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -22,10 +23,12 @@ export class ContactoComponent {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      alert("Mensaje enviado exitosamente.")
+    const modalDiv = document.getElementById('myModal');
+    if (this.form.valid && modalDiv!=null) {
+      modalDiv.style.display = 'block';
+      modalDiv.style.backgroundColor = '#3a393960';
     } else {
-      alert("Por favor, completá todos los campos antes de enviar el mensaje.")
+      this.form.markAllAsTouched();
     }
   }
 }

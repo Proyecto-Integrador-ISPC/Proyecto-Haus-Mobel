@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarritoService } from '../../services/carrito.service';
 import { CarritoItemsComponent } from '../../shared/carrito-items/carrito-items.component';
 
 @Component({
@@ -11,22 +10,18 @@ import { CarritoItemsComponent } from '../../shared/carrito-items/carrito-items.
   styleUrl: './dashboard.component.css'
 })
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent{
+  constructor() {}
+
   selectedItem: string = 'usuario';
+
+  opciones = ['usuario', 'compras', 'estado', 'historial', 'carrito'];
 
   mostrarSeccion(seccion: string) {
     this.selectedItem = seccion;
-  }
-  productos: any[] = [];
-
-  constructor(private carritoService: CarritoService) { }
-
-  ngOnInit(): void {
-    this.productos = this.carritoService.obtenerCarrito();
   }
 
   calcularSubtotal(producto: any): number {
     return producto.precio * producto.cantidad; 
   }
-
 }

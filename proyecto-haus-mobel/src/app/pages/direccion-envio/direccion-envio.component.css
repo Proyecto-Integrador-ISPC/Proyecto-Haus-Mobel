@@ -1,11 +1,11 @@
-.contact-main {
+.direccion-main {
   margin: 0;
   padding: 0;
   text-align: center;
   margin-top: 100px;
 }
 
-.contact-container {
+.direccion-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px 50px;
@@ -13,10 +13,6 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 34px;
   place-items: center;
-}
-
-.contact-name {
-  color: #83b735;
 }
 
 form {
@@ -58,7 +54,7 @@ input[type="submit"] {
   }
 }
 
-.button-contact {
+.button-direccion {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -84,4 +80,8 @@ main {
 .btn-pagar{
   background-color: #8FC53D;
   color: black;
+}
+
+.required{
+  color: red;
 }

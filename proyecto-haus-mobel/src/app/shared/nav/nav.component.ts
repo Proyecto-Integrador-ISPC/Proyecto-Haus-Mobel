@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-declare var $: any;
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,29 +13,30 @@ declare var $: any;
 })
 
 export class NavComponent {
-  itemsEnCarrito: any[] = []; 
-  constructor(private router: Router) {}
   
-
-  ngOnInit() {
-    // Inicializa Bootstrap manualmente
-    $('[data-toggle="dropdown"]').dropdown();
-    // this.actualizarItemsEnCarrito();
-    // this.itemsEnCarrito = this.carritoService.obtenerItemsEnCarrito();
-  }
+  constructor(private router: Router, private authService: AuthService) {}  
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    return this.authService.isLoggedIn();
   }
 
-  getUsername(): string | null {
-    return localStorage.getItem('username');
-  }
-
+  // cerrarSesion() {
+  //   localStorage.removeItem('isLoggedIn');
+  //   localStorage.removeItem('usuario');    
+  //   this.router.navigate(['/loguin']);
+  // }
   cerrarSesion() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('usuario');    
+    this.authService.setLoggedIn(false);
     this.router.navigate(['/loguin']);
+    // this.authService.logout().subscribe(
+    //   () => {
+    //     this.authService.setLoggedIn(false);
+    //     this.router.navigate(['/loguin']);
+    //   },
+    //   error => {
+    //     console.error('Error al cerrar sesión:', error);
+    //   }
+    // );
   }
 
   toggleDropdown(){
@@ -45,9 +45,4 @@ export class NavComponent {
       dropdownMenu.classList.toggle('show');
       }
     }
-    
-    misCompras() {
-      this.router.navigate(['/compras']);
-    }
-
 }
