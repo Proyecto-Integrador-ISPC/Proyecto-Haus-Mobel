@@ -15,8 +15,9 @@ class ClientesAdmin(admin.ModelAdmin):
     list_display = ('cuil','nombre','apellido','mail','domicilio','telefono')
 class RolesAdmin(admin.ModelAdmin):
     list_display = ('idRol','descripcion')
-#class UsuariosAdmin(admin.ModelAdmin):
-#    list_display = ('idUsuario','cuil','idRol','password')
+class CarritosAdmin(admin.ModelAdmin):
+    list_display = ('idVenta','fecha','idProducto','cantidad','importe','Idusuario')
+
 
 
 admin.site.register(TipoProductos,TipoProductosAdmin)
@@ -25,3 +26,4 @@ admin.site.register(Facturas, FacturasAdmin)
 admin.site.register(Detalles, DetallesAdmin)
 admin.site.register(Clientes, ClientesAdmin)
 admin.site.register(Roles, RolesAdmin)
+admin.site.register(Carritos, CarritosAdmin)

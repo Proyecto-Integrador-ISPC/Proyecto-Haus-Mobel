@@ -1,12 +1,18 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Productos
+from .models import Productos, Carritos
 
 class ProductosSerializer(serializers.ModelSerializer):
  class Meta:
   model= Productos
   fields='__all__'
   
+
+class CarritosSerializer(serializers.ModelSerializer):
+ class Meta:
+  model= Carritos
+  fields='__all__'
+
 #----------user
 
 class UserSerializer(serializers.ModelSerializer):
