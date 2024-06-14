@@ -85,3 +85,19 @@ class Roles(models.Model):
         return self.idRol
     def __str__(self):
         return self.idRol
+
+class Carritos(models.Model):
+    idVenta = models.AutoField(primary_key=True)
+    fecha = models.DateField(blank=False)
+    idProducto = models.ForeignKey(Productos, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(blank=False)
+    importe = models.FloatField(blank=False)
+    Idusuario = models.IntegerField(blank=False)
+    class Meta:
+        db_table = 'Carritos'
+        verbose_name='Carrito'
+        verbose_name_plural='Carritos'
+    def __unicode__(self):
+        return self.idVenta
+    def __str__(self):
+        return self.idVenta
