@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -13,16 +14,29 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class NavComponent {
   
-  constructor(private router: Router) {}  
+  constructor(private router: Router, private authService: AuthService) {}  
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    return this.authService.isLoggedIn();
   }
 
+  // cerrarSesion() {
+  //   localStorage.removeItem('isLoggedIn');
+  //   localStorage.removeItem('usuario');    
+  //   this.router.navigate(['/loguin']);
+  // }
   cerrarSesion() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('usuario');    
+    this.authService.setLoggedIn(false);
     this.router.navigate(['/loguin']);
+    // this.authService.logout().subscribe(
+    //   () => {
+    //     this.authService.setLoggedIn(false);
+    //     this.router.navigate(['/loguin']);
+    //   },
+    //   error => {
+    //     console.error('Error al cerrar sesión:', error);
+    //   }
+    // );
   }
 
   toggleDropdown(){

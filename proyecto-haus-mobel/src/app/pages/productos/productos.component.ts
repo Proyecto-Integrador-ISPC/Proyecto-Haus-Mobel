@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CarritoService } from '../../services/carrito.service';
 import { ListaProductosService } from '../../services/lista-productos.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,7 +14,52 @@ import { ListaProductosService } from '../../services/lista-productos.service';
   styleUrl: './productos.component.css'
 })
 
-export class ProductosComponent {
+export class ProductosComponent implements OnInit {
+  ngOnInit(): void {
+    this.checkApiConnection();
+  }
+
+  // checkApiConnection(): void {
+  //   this.apiService.getProductos().subscribe(response => {
+  //     if (response.success !== false) {
+  //       console.log('API connection successful:', response);
+  //     } else {
+  //       console.log('API connection failed:', response.message);
+  //     }
+  //   });
+  // }
+
+  checkApiConnection(): void {
+    this.apiService.getProductos().subscribe(response => {
+      if (response.success !== false) {
+        console.log('API connection successful:', response);
+        this.productList = response.data; // Assuming 'data' holds the product list
+      } else {
+        console.log('API connection failed:', response.message);
+      }
+    });
+  }
+
+  listarProductos(): void {
+    if (this.authService.isLoggedIn()) {
+      this.apiService.getProductos().subscribe({
+        next: (response) => {
+          if (response.success !== false) {
+            this.productList = response.data; // Assuming 'data' holds the product list
+            console.log('Productos obtenidos:', this.productList);
+          } else {
+            console.log('Error al obtener productos:', response.message);
+          }
+        },
+        error: (error) => {
+          console.error('Error al obtener productos:', error);
+        }
+      });
+    } else {
+      console.log('Usuario no autenticado. No se puede obtener productos.');
+    }
+  }
+  
   productList:any;
 
   productos = [
@@ -32,18 +78,53 @@ export class ProductosComponent {
     private authService: AuthService,
     private router: Router,
     private carritoService: CarritoService,
-    private listaProductosService: ListaProductosService
+    private listaProductosService: ListaProductosService,
+    private apiService: ApiService
   ) {
-    this.listaProductosService.obtenerProductos().subscribe({
-      next: (productList) => {
-        this.productList = productList;
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
+    // this.listaProductosService.obtenerProductos().subscribe({
+    //   next: (productList) => {
+    //     this.productList = productList;
+    //   },
+    //   error: (error) => {
+    //     console.error(error);
+    //   }
+    // });
   }
 
+
+  // listarProductos(): void {
+  //   if (this.authService.isLoggedIn()) {
+  //     this.apiService.getProductos().subscribe({
+  //       next: (products) => {
+  //         this.productList = products;
+  //         console.log('Productos obtenidos:', this.productList);
+  //       },
+  //       error: (error) => {
+  //         console.error('Error al obtener productos:', error);
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Usuario no autenticado. No se puede obtener productos.');
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
@@ -67,20 +148,20 @@ export class ProductosComponent {
 
   agregarAlCarrito(productoId: string) {        
 
-    if (this.authService.isLoggedIn()) {
-      const producto = this.obtenerProductoPorId(productoId);
+    // if (this.authService.isLoggedIn()) {
+    //   const producto = this.obtenerProductoPorId(productoId);
     
-      const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
-      const cantidad = parseInt(cantidadInput.value, 10);
+    //   const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
+    //   const cantidad = parseInt(cantidadInput.value, 10);
       
-      producto.cantidad = cantidad;
+    //   producto.cantidad = cantidad;
 
-      this.carritoService.agregarAlCarrito(producto);
-      console.log('Producto agregado al carrito:', producto);
-      this.showModal('myModal');
-    } else {
-       this.showModalIniciarS('loginModal');
-    }
+    //   this.carritoService.agregarAlCarrito(producto);
+    //   console.log('Producto agregado al carrito:', producto);
+    //   this.showModal('myModal');
+    // } else {
+    //    this.showModalIniciarS('loginModal');
+    // }
   }
 
 

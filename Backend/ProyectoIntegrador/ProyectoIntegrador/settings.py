@@ -62,8 +62,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
-    ]
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'ProyectoIntegrador.urls'
 
@@ -98,7 +101,7 @@ DATABASES = {
 'ENGINE': 'django.db.backends.mysql',
 'NAME': 'hausmobel',
 'USER': 'root',
-'PASSWORD': '',
+'PASSWORD': 'root',
 'HOST': 'localhost',
 'PORT': '3306',
 'OPTIONS': {
