@@ -41,9 +41,12 @@ export class RegistroComponent {
   // }
 
   onSubmit(event: Event): void {
+    const modalDiv = document.getElementById('myModal');
     event.preventDefault; 
-    if (this.form.valid)
+    if (this.form.valid && modalDiv!=null)
     {
+      modalDiv.style.display = 'block';
+      modalDiv.style.backgroundColor = '#3a393960';
       console.log("Enviando  al servidor...");
       
       this.authService.createUser(this.form.value as User).subscribe(
@@ -56,7 +59,9 @@ export class RegistroComponent {
               this.router.navigate(['/home'])
             }
         })
+        
     }
+    
     else
     {
       this.form.markAllAsTouched(); 

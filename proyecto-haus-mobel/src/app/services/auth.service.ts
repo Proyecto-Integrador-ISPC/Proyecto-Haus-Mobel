@@ -18,12 +18,21 @@ export class AuthService {
   url="http://127.0.0.1:8000/api/registro";
   apiurl="http://127.0.0.1:8000/api/login";
   apiUrloficial="http://127.0.0.1:8000/api";
+
+  apiUrlListar = 'http://127.0.0.1:8000/api/ListarProductos';
+
   localStorageKey = 'token';
   private loggedIn = false;  
   
   constructor(private http:HttpClient) { 
     this.loggedIn = !!localStorage.getItem('token');
-   }
+  }
+
+ 
+  // Nuevo método para obtener los datos desde apiUrlListar
+  getProductos(): Observable<any> {
+    return this.http.get(this.apiUrlListar);
+  }
 
   createUser(user:User):Observable<any>{
     return this.http.post(this.url, user)

@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
 #----------user
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializer import UserSerializer, RegisterSerializer
@@ -16,6 +16,7 @@ from .models import Productos, Carritos
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
+
 
 
 class ProductoViewSet(viewsets.ModelViewSet):
@@ -62,16 +63,51 @@ class UserAPI(generics.RetrieveAPIView):
 ##FIN USUARIOS
 
 
+# class ListarProductos(generics.ListCreateAPIView):
+#     queryset = Productos.objects.all()
+#     serializer_class = ProductosSerializer
+#     http_method_names = ['get']
+#     #permission_classes = [permissions.IsAuthenticated]
+#     def list(self, request):
+#         queryset = self.get_queryset()
+#         serializer = ProductosSerializer(queryset, many=True)
+#         if self.request.user.is_authenticated:
+#             return Response(serializer.data)
+
+# class ListarProductos(generics.ListAPIView):
+#     queryset = Productos.objects.all()
+#     serializer_class = ProductosSerializer
+#     permission_classes = [permissions.AllowAny]
+
+#     def get(self, request, *args, **kwargs):
+#         try:
+#             queryset = self.get_queryset()
+#             serializer = self.get_serializer(queryset, many=True)
+#             return Response(serializer.data, status=status.HTTP_200_OK)
+#         except Exception as e:
+#             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
 class ListarProductos(generics.ListCreateAPIView):
     queryset = Productos.objects.all()
     serializer_class = ProductosSerializer
-    http_method_names = ['get']
-    #permission_classes = [permissions.IsAuthenticated]
-    def list(self, request):
-        queryset = self.get_queryset()
-        serializer = ProductosSerializer(queryset, many=True)
-        if self.request.user.is_authenticated:
-            return Response(serializer.data)
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        try:
+            queryset = self.get_queryset()
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
         
 class ListarCarritos(generics.ListCreateAPIView):
     queryset = Carritos.objects.all()
@@ -88,3 +124,5 @@ class ListarCarritos(generics.ListCreateAPIView):
 class Confirmar(APIView):  # Retornar custom json 
     def get(self, request):
         return Response({"respuesta": "Compra realizada con exito"})
+    
+    

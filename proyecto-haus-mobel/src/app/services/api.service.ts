@@ -10,10 +10,56 @@ import { AuthService } from './auth.service';
 })
 export class ApiService {
   
-  constructor(private http:HttpClient) { }
   
   // private apiUrl = 'http://localhost:8000/api';
   private apiUrl = 'http://127.0.0.1:8000/api/ListarProductos';
+  private apiUrls = 'http://127.0.0.1:8000/api/carrito/';
+  
+  constructor(private http:HttpClient) { }
+   // Método para guardar el carrito en la API
+  //  guardarCarrito(carrito: any[]): Observable<any> {
+  //   const url = 'http://127.0.0.1:8000/api/ListarCarritos/'; 
+  //   return this.http.post<any>(url, carrito).pipe(
+  //     tap(response => console.log('Carrito guardado:', response)),
+  //     catchError(error => {
+  //       console.error('Error al guardar el carrito:', error);
+  //       return of({ success: false, message: 'Error al guardar el carrito' });
+  //     })
+  //   );
+  // }
+
+  // guardarCarrito(carrito: any[]): Observable<any> {
+  //   const url = 'http://127.0.0.1:8000/api/carrito/';
+  //   return this.http.post<any>(url, carrito).pipe(
+  //     tap(response => console.log('Carrito guardado:', response)),
+  //     catchError(error => {
+  //       console.error('Error al guardar el carrito:', error);
+  //       return of({ success: false, message: 'Error al guardar el carrito' });
+  //     })
+  //   );
+  // }
+  // guardarCarrito(carrito: any[]): Observable<any> {
+  //   const url = 'http://127.0.0.1:8000/api/ListarProductos/'; // Nota la barra diagonal al final
+  //   return this.http.post<any>(url, carrito).pipe(
+  //     tap(response => console.log('Carrito guardado:', response)),
+  //     catchError(error => {
+  //       console.error('Error al guardar el carrito:', error);
+  //       return of({ success: false, message: 'Error al guardar el carrito' });
+  //     })
+  //   );
+  // }
+  guardarCarrito(carrito: any): Observable<any> {
+    return this.http.post<any>(this.apiUrls, carrito).pipe(
+      tap(response => console.log('Carrito guardado en la API:', response)),
+      catchError(error => {
+        console.error('Error al guardar el carrito:', error);
+        return of({ success: false, message: 'Error al guardar el carrito' });
+      })
+    );
+  }
+
+  
+  
 
   // Ejemplo de método para obtener productos
   getProductos(): Observable<any> {
@@ -31,30 +77,6 @@ export class ApiService {
         return of({ success: false, message: 'Connection failed', data: [] });
       })
     );
-  }
-
-  // Ejemplo de método para registro de usuario
-  // register(user: any): Observable<any> {
-  //   return this.http.post<any>(`${this.apiUrl}/registro`, user);
-  // }
-
-  // // Ejemplo de método para login de usuario
-  // login(credentials: any): Observable<any> {
-  //   return this.http.post<any>(`${this.apiUrl}/login`, credentials);
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+  }  
   
 }

@@ -97,7 +97,9 @@ class Carritos(models.Model):
         db_table = 'Carritos'
         verbose_name='Carrito'
         verbose_name_plural='Carritos'
-    def __unicode__(self):
-        return self.idVenta
+    # def __unicode__(self):
+    #     return self.idVenta
+    # def __str__(self):
+    #     return self.idVenta
     def __str__(self):
-        return self.idVenta
+        return str(self.idVenta)

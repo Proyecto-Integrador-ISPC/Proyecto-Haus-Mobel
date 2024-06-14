@@ -5,6 +5,8 @@ import { AuthService } from '../../services/auth.service';
 import { CarritoService } from '../../services/carrito.service';
 import { ListaProductosService } from '../../services/lista-productos.service';
 import { ApiService } from '../../services/api.service';
+import { Observer } from 'rxjs';
+import { PartialObserver } from 'rxjs';
 
 @Component({
   selector: 'app-productos',
@@ -15,123 +17,33 @@ import { ApiService } from '../../services/api.service';
 })
 
 export class ProductosComponent implements OnInit {
+  productList: any[] = [];
+  carrito: any[] = [];
+  parteOcultaVisible = false;
+  elementoVisible: string | null = null;
+
+  constructor(private apiService: ApiService) {}
+
   ngOnInit(): void {
-    this.checkApiConnection();
+    this.listarProductos();
   }
 
-  // checkApiConnection(): void {
-  //   this.apiService.getProductos().subscribe(response => {
-  //     if (response.success !== false) {
-  //       console.log('API connection successful:', response);
-  //     } else {
-  //       console.log('API connection failed:', response.message);
-  //     }
-  //   });
-  // }
-
-  checkApiConnection(): void {
-    this.apiService.getProductos().subscribe(response => {
-      if (response.success !== false) {
-        console.log('API connection successful:', response);
-        this.productList = response.data; // Assuming 'data' holds the product list
-      } else {
-        console.log('API connection failed:', response.message);
+  listarProductos(): void {
+    this.apiService.getProductos().subscribe({
+      next: (response) => {
+        this.productList = response; // Asegúrate de que 'response' contenga la lista de productos directamente
+        console.log('Productos obtenidos:', this.productList);
+      },
+      error: (error) => {
+        console.error('Error al obtener productos:', error);
       }
     });
   }
 
-  listarProductos(): void {
-    if (this.authService.isLoggedIn()) {
-      this.apiService.getProductos().subscribe({
-        next: (response) => {
-          if (response.success !== false) {
-            this.productList = response.data; // Assuming 'data' holds the product list
-            console.log('Productos obtenidos:', this.productList);
-          } else {
-            console.log('Error al obtener productos:', response.message);
-          }
-        },
-        error: (error) => {
-          console.error('Error al obtener productos:', error);
-        }
-      });
-    } else {
-      console.log('Usuario no autenticado. No se puede obtener productos.');
-    }
-  }
-  
-  productList:any;
-
-  productos = [
-    { id: 1, nombre: 'Silla Elegance', precio: "$19.500", descripcion: 'Silla madera, acolchado gris, elegante y cómoda, perfecta para interiores con estilo y confort duradero.', imagenUrl: 'assets/p1.jpg' },
-    { id: 2, nombre: 'Silla Bellavista', precio: "$15.500", descripcion: 'Silla madera, acolchado gris, elegante y cómoda, perfecta para interiores con estilo y confort duradero.', imagenUrl: 'assets/p2.jpg' },
-    { id: 3, nombre: 'Silla Harmony', precio: "$22.999", descripcion: 'Silla chic con patas madera oscura, asiento y respaldo en rosa, aporta encanto y frescura a cualquier espacio.', imagenUrl: 'assets/p3.jpg' },
-    { id: 4, nombre: 'Silla Luna', precio: "$17.999", descripcion: 'Silla ergonómica de oficina, diseño contemporáneo, ajustes personalizados para comodidad laboral y productividad..', imagenUrl: 'assets/p4.jpg' },
-    { id: 5, nombre: 'Silla Zenith', precio: "$21.000", descripcion: 'Silla moderna con patas de madera y asiento de plástico negro, fusión de estilo y practicidad en diseño.', imagenUrl: 'assets/p5.jpg' },
-    { id: 6, nombre: 'Silla Confortplus', precio: "$16.000", descripcion: 'Silla elegante, patas de madera sólida, asiento acolchado en negro, combinando estilo y comodidad en un diseño atemporal..', imagenUrl: 'assets/p6.jpg' },
-    { id: 7, nombre: 'Silla Dreamwave', precio: "$26.000", descripcion: 'Silla elegante, patas de madera sólida, asiento acolchado en negro, combinando estilo y comodidad en un diseño atemporal.', imagenUrl: 'assets/new1.jpg' },
-    { id: 8, nombre: 'Silla Smartsiesta', precio: "$18.000", descripcion: 'Silla de plástico ligera y versátil, perfecta para uso en interiores y exteriores.', imagenUrl: 'assets/new2.jpg' },
-    { id: 9, nombre: 'Silla CozyHaven', precio: "$19.999", descripcion: 'Silla con estructura metálica elegante y duradera, adecuada para diversos entornos decorativos.', imagenUrl: 'assets/new3.jpg' },
-  ];
-
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private carritoService: CarritoService,
-    private listaProductosService: ListaProductosService,
-    private apiService: ApiService
-  ) {
-    // this.listaProductosService.obtenerProductos().subscribe({
-    //   next: (productList) => {
-    //     this.productList = productList;
-    //   },
-    //   error: (error) => {
-    //     console.error(error);
-    //   }
-    // });
-  }
-
-
-  // listarProductos(): void {
-  //   if (this.authService.isLoggedIn()) {
-  //     this.apiService.getProductos().subscribe({
-  //       next: (products) => {
-  //         this.productList = products;
-  //         console.log('Productos obtenidos:', this.productList);
-  //       },
-  //       error: (error) => {
-  //         console.error('Error al obtener productos:', error);
-  //       }
-  //     });
-  //   } else {
-  //     console.log('Usuario no autenticado. No se puede obtener productos.');
-  //   }
+  // getCantidad(idProducto: number): number {
+  //   const inputElement = document.getElementById(`cantProducto${idProducto}`) as HTMLInputElement;
+  //   return parseInt(inputElement.value, 10);
   // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  parteOcultaVisible = false;
-  elementoVisible: string | null = null;
-
-  toggleParteOculta() {
-    this.parteOcultaVisible = !this.parteOcultaVisible;
-  }  
 
   abrirElemento(identificador: string) {
     this.parteOcultaVisible = false;
@@ -140,36 +52,75 @@ export class ProductosComponent implements OnInit {
 
   cerrarElemento() {
     this.elementoVisible = null;
-
     this.parteOcultaVisible = false;
   }
 
-  carrito: string[] = [];
+  // agregarAlCarrito(producto: any) {
+  //   const cantidad = this.getCantidad(producto.id);
 
-  agregarAlCarrito(productoId: string) {        
+  //   // Verificar si el producto ya está en el carrito
+  //   const itemEnCarrito = this.carrito.find(item => item.id === producto.id);
+  
+  //   if (itemEnCarrito) {
+  //     itemEnCarrito.cantidad += cantidad; // Sumar la cantidad al producto existente en el carrito
+  //   } else {
+  //     // Si no está en el carrito, agregarlo con la cantidad
+  //     this.carrito.push({ ...producto, cantidad });
+  //   }
+  
+  //   console.log('Carrito actualizado:', this.carrito);
+  //   this.showModal('myModal');
+  // }
 
-    // if (this.authService.isLoggedIn()) {
-    //   const producto = this.obtenerProductoPorId(productoId);
-    
-    //   const cantidadInput = document.getElementById('cantProducto') as HTMLInputElement;
-    //   const cantidad = parseInt(cantidadInput.value, 10);
-      
-    //   producto.cantidad = cantidad;
+  // agregarAlCarrito(producto: any) {
+  //   const cantidad = this.getCantidad(producto.id);
 
-    //   this.carritoService.agregarAlCarrito(producto);
-    //   console.log('Producto agregado al carrito:', producto);
-    //   this.showModal('myModal');
-    // } else {
-    //    this.showModalIniciarS('loginModal');
-    // }
-  }
+  //   // Verificar si el producto ya está en el carrito
+  //   const itemEnCarrito = this.carrito.find(item => item.id === producto.id);
 
+  //   if (itemEnCarrito) {
+  //     itemEnCarrito.cantidad += cantidad;
+  //   } else {
+  //     this.carrito.push({ ...producto, cantidad });
+  //   }
 
+  //   console.log('Carrito actualizado:', this.carrito);
+  //   this.apiService.guardarCarrito(this.carrito).subscribe({
+  //     next: (response) => {
+  //       console.log('Carrito guardado en la API:', response);
+  //       this.showModal('myModal');
+  //     },
+  //     error: (error) => {
+  //       console.error('Error al guardar el carrito en la API:', error);
+  //     }
+  //   });
+  // }
 
-  obtenerProductoPorId(id: string): any {
-    return { id, nombre: 'Producto ' + id, precio: 100 }; 
+  agregarAlCarrito(producto: any) {
+    const carrito = {
+      fecha: new Date(),
+      idProducto: producto.id,
+      cantidad: 1,
+      importe: producto.precio,
+      Idusuario: 1  // Asegúrate que 1 sea un entero válido si Idusuario espera un entero
+    };
+  
+    this.apiService.guardarCarrito(carrito).subscribe({
+      next: response => {
+        console.log('Carrito guardado exitosamente:', response);
+      },
+      error: error => {
+        console.error('Error al guardar el carrito:', error);
+      }
+    });
   }
   
+
+
+  getCantidad(idProducto: number): number {
+    const inputElement = document.getElementById(`cantProducto${idProducto}`) as HTMLInputElement;
+    return parseInt(inputElement.value, 10);
+  }
 
   showModal(myModal: string) {
     const modalDiv = document.getElementById(myModal);
@@ -179,24 +130,24 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  closeModal() {
-    const modelDiv = document.getElementById('myModal');
-    if(modelDiv!=null) {
+  closeModal(myModal: string) {
+    const modelDiv = document.getElementById(myModal);
+    if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
   }
 
   showModalIniciarS(myModal: string) {
-    const modalDiv = document.getElementById('loginModal');
+    const modalDiv = document.getElementById(myModal);
     if (modalDiv != null) {
       modalDiv.style.display = 'block';
       modalDiv.style.backgroundColor = '#3a393960';
     }
   }
 
-  closeModalIniciarS() {
-    const modelDiv = document.getElementById('loginModal');
-    if(modelDiv!=null) {
+  closeModalIniciarS(myModal: string) {
+    const modelDiv = document.getElementById(myModal);
+    if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
   }
