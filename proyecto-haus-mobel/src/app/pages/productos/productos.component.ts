@@ -19,14 +19,45 @@ export class ProductosComponent implements OnInit {
     this.checkApiConnection();
   }
 
+  // checkApiConnection(): void {
+  //   this.apiService.getProductos().subscribe(response => {
+  //     if (response.success !== false) {
+  //       console.log('API connection successful:', response);
+  //     } else {
+  //       console.log('API connection failed:', response.message);
+  //     }
+  //   });
+  // }
+
   checkApiConnection(): void {
     this.apiService.getProductos().subscribe(response => {
       if (response.success !== false) {
         console.log('API connection successful:', response);
+        this.productList = response.data; // Assuming 'data' holds the product list
       } else {
         console.log('API connection failed:', response.message);
       }
     });
+  }
+
+  listarProductos(): void {
+    if (this.authService.isLoggedIn()) {
+      this.apiService.getProductos().subscribe({
+        next: (response) => {
+          if (response.success !== false) {
+            this.productList = response.data; // Assuming 'data' holds the product list
+            console.log('Productos obtenidos:', this.productList);
+          } else {
+            console.log('Error al obtener productos:', response.message);
+          }
+        },
+        error: (error) => {
+          console.error('Error al obtener productos:', error);
+        }
+      });
+    } else {
+      console.log('Usuario no autenticado. No se puede obtener productos.');
+    }
   }
   
   productList:any;
@@ -50,32 +81,50 @@ export class ProductosComponent implements OnInit {
     private listaProductosService: ListaProductosService,
     private apiService: ApiService
   ) {
-    this.listaProductosService.obtenerProductos().subscribe({
-      next: (productList) => {
-        this.productList = productList;
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
+    // this.listaProductosService.obtenerProductos().subscribe({
+    //   next: (productList) => {
+    //     this.productList = productList;
+    //   },
+    //   error: (error) => {
+    //     console.error(error);
+    //   }
+    // });
   }
 
-  listarProductos(): void {
-    if (this.authService.isLoggedIn()) {
-      this.apiService.getProductos().subscribe({
-        next: (products) => {
-          this.productList = products;
-          console.log('Productos obtenidos:', this.productList);
-        },
-        error: (error) => {
-          console.error('Error al obtener productos:', error);
-        }
-      });
-    } else {
-      console.log('Usuario no autenticado. No se puede obtener productos.');
-    }
-  }
 
+  // listarProductos(): void {
+  //   if (this.authService.isLoggedIn()) {
+  //     this.apiService.getProductos().subscribe({
+  //       next: (products) => {
+  //         this.productList = products;
+  //         console.log('Productos obtenidos:', this.productList);
+  //       },
+  //       error: (error) => {
+  //         console.error('Error al obtener productos:', error);
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Usuario no autenticado. No se puede obtener productos.');
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   parteOcultaVisible = false;
   elementoVisible: string | null = null;
